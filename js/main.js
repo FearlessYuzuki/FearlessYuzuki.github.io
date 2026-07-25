@@ -75,13 +75,13 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ---- Language Switcher ----
-  var langOptions = document.querySelectorAll('.lang-option');
+  var langOptions = document.querySelectorAll('.topbar-lang-option');
   var langCurrent = document.querySelector('.lang-current');
 
   if (langOptions.length && langCurrent) {
     // Detect current language from URL
     var currentPath = window.location.pathname;
-    var currentLang = currentPath.startsWith('/zh-CN') ? 'zh-CN' : 'en';
+    var currentLang = currentPath.indexOf('/zh-CN') === 0 ? 'zh-CN' : 'en';
 
     // Set active state
     langOptions.forEach(function(opt) {
@@ -98,21 +98,92 @@ document.addEventListener('DOMContentLoaded', function () {
         var targetLang = this.dataset.lang;
         var path = window.location.pathname;
 
-        // Store preference
         localStorage.setItem('preferred-lang', targetLang);
 
+        var targetPath;
         if (targetLang === 'zh-CN') {
-          // Switch to Chinese: add /zh-CN prefix
-          if (!path.startsWith('/zh-CN')) {
-            window.location.href = '/zh-CN' + path;
-          }
+          targetPath = '/zh-CN' + (path === '/' ? '/' : path);
         } else {
-          // Switch to English: remove /zh-CN prefix
-          if (path.startsWith('/zh-CN')) {
-            var newPath = path.replace('/zh-CN', '') || '/';
-            window.location.href = newPath;
-          }
+          targetPath = path.replace(/^\/zh-CN/, '') || '/';
         }
+
+        // Use fetch to check if route exists, fallback to root
+        fetch(targetPath, { method: 'HEAD' }).then(function(res) {
+          if (res.ok) {
+            window.location.href = targetPath;
+          } else {
+            // Fallback: go to language root
+            window.location.href = targetLang === 'zh-CN' ? '/zh-CN/' : '/';
+          }
+        }).catch(function() {
+          window.location.href = targetLang === 'zh-CN' ? '/zh-CN/' : '/';
+        });
+      });
+    });
+  }
+
+  // ---- Theme Toggle (Day/Night) ----
+  var themeToggle = document.querySelector('.theme-toggle');
+
+  function getPreferredTheme() {
+    var stored = localStorage.getItem('theme');
+    if (stored) return stored;
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
+
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }
+
+  // Apply saved theme on load
+  setTheme(getPreferredTheme());
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme') || 'dark';
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  }
+
+  // ---- Terminal Tabs ----
+  var terminalTabBtns = document.querySelectorAll('.terminal-tab-btn');
+  var terminalTabs = document.querySelectorAll('.terminal-tab');
+
+  if (terminalTabBtns.length) {
+    terminalTabBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var targetTab = this.dataset.tab;
+
+        // Update button states
+        terminalTabBtns.forEach(function(b) { b.classList.remove('active'); });
+        this.classList.add('active');
+
+        // Update tab content
+        terminalTabs.forEach(function(tab) { tab.classList.remove('active'); });
+        var target = document.getElementById('tab-' + targetTab);
+        if (target) target.classList.add('active');
+      });
+    });
+  }
+
+  // ---- ISO Disc View Toggle ----
+  var isoViewBtns = document.querySelectorAll('.iso-disc-view-btn');
+  var isoViews = document.querySelectorAll('.iso-file-list, .iso-file-grid');
+
+  if (isoViewBtns.length) {
+    isoViewBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var targetView = this.dataset.view;
+
+        // Update button states
+        isoViewBtns.forEach(function(b) { b.classList.remove('active'); });
+        this.classList.add('active');
+
+        // Update view content
+        isoViews.forEach(function(v) { v.classList.remove('active'); });
+        var target = document.getElementById('view-' + targetView);
+        if (target) target.classList.add('active');
       });
     });
   }
@@ -144,20 +215,20 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ---- Mobile Menu Toggle ----
-  var navToggle = document.querySelector('.nav-toggle');
-  var navMenu = document.querySelector('.nav-menu');
+  var navToggle = document.querySelector('.topbar-mobile-toggle');
+  var sidebar = document.querySelector('.sidebar');
 
-  if (navToggle && navMenu) {
+  if (navToggle && sidebar) {
     navToggle.addEventListener('click', function () {
       navToggle.classList.toggle('active');
-      navMenu.classList.toggle('active');
+      sidebar.classList.toggle('mobile-open');
     });
 
     // Close menu on click outside
     document.addEventListener('click', function (e) {
-      if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+      if (!navToggle.contains(e.target) && !sidebar.contains(e.target)) {
         navToggle.classList.remove('active');
-        navMenu.classList.remove('active');
+        sidebar.classList.remove('mobile-open');
       }
     });
   }
@@ -202,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ---- Search Toggle ----
-  var searchToggle = document.querySelector('.search-toggle');
+  var searchToggle = document.querySelector('.topbar-search-toggle');
   var searchBox = document.querySelector('.search-box');
   var searchInput = document.getElementById('search-input');
 
