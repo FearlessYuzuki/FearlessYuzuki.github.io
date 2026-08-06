@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;zh-CN&quot;,&quot;default&quot;]"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Theme | Yuzuik's Blog</title><meta charset="UTF-8"><meta name="description" content="Log &amp; Dev"><meta name="keywords" content="C++, Linux, UE, Unity, Hexo, Rust, Java, C#, Algorithms"><meta name="author" content="sorrow"><link rel="icon" type="image/svg+xml" href="/img/avatar.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;700&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="/css/style.css"><script>window.komorebiConfig = {
+  emails: ["fearlessyuzuki@xs.wbu.edu.cn","fearlessyuzuki@foxmail.com"]
+};
+</script><meta name="generator" content="Hexo 8.1.2"></head><body class="page"><div class="site-wrapper"><nav class="topbar"><div class="topbar-left"><div class="window-controls"><span class="dot dot-close"></span><span class="dot dot-min"></span><span class="dot dot-max"></span></div><img class="topbar-avatar" src="/img/avatar.svg" alt="sorrow"><div class="topbar-user"><div class="topbar-username">sorrow</div><div class="topbar-hostname">@Yuzuik's Blog</div></div></div><div class="topbar-spacer"></div><div class="topbar-right"><div class="topbar-search"><button class="topbar-search-toggle" aria-label="Search"><i class="fas fa-search"></i></button></div><button class="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon theme-icon-dark"></i><i class="fas fa-sun theme-icon-light"></i></button><div class="topbar-lang"><button class="topbar-lang-toggle" type="button" aria-label="Switch Language"><span class="lang-current">EN</span><div class="topbar-lang-dropdown"><a class="topbar-lang-option" href="#" data-lang="en">EN</a><a class="topbar-lang-option" href="#" data-lang="zh-CN">CN</a></div></button></div><div class="topbar-clock"><div class="clock-time" id="clock-time">--:--</div><div class="clock-date" id="clock-date">----- //</div></div></div></nav><main class="site-content"><div class="page-content"><div class="page-header"><div class="window-dots"><span class="dot dot-close"></span><span class="dot dot-min"></span><span class="dot dot-max"></span></div><h1 class="page-title">Theme</h1></div><div class="page-body"><h2 id="Komorebi-—-木漏れ日"><a href="#Komorebi-—-木漏れ日" class="headerlink" title="Komorebi — 木漏れ日"></a>Komorebi — 木漏れ日</h2><p>The Hexo theme powering this blog: Japanese-minimalist design with a tiling-window aesthetic (inspired by Hyprland &#x2F; niri). <strong>Dark is the default theme</strong>; light is a warm off-white. Both share a high-contrast rainbow accent palette.</p>
+<h3 id="Color-scheme"><a href="#Color-scheme" class="headerlink" title="Color scheme"></a>Color scheme</h3><table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Dark (default)</th>
+<th>Light</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Page background</td>
+<td><code>#2C2420</code> warm dark gray</td>
+<td><code>#FDFBF7</code> warm white</td>
+</tr>
+<tr>
+<td>Text</td>
+<td><code>#F2EDE7</code></td>
+<td><code>#2B2621</code></td>
+</tr>
+<tr>
+<td>Accents</td>
+<td>Blue <code>#60A5FA</code> &#x2F; Purple <code>#C084FC</code> &#x2F; Red <code>#F87171</code></td>
+<td>Blue <code>#2563EB</code> &#x2F; Purple <code>#9333EA</code> &#x2F; Red <code>#DC2626</code></td>
+</tr>
+<tr>
+<td>Font</td>
+<td>Noto Sans Mono, bold</td>
+<td>same</td>
+</tr>
+</tbody></table>
+<h3 id="Theme-configuration"><a href="#Theme-configuration" class="headerlink" title="Theme configuration"></a>Theme configuration</h3><p>Everything lives in <code>themes/komorebi/_config.yml</code>:</p>
+<ul>
+<li><strong>background</strong> — optional background image URL</li>
+<li><strong>menu</strong> — navigation menu (rendered by <code>cat ./navigation.md</code> on the homepage terminal)</li>
+<li><strong>search</strong> — local search (<code>search.json</code> generated at build time, no external service)</li>
+<li><strong>toc &#x2F; copyright &#x2F; mathjax &#x2F; backToTop &#x2F; visits</strong> — TOC, copyright notice, MathJax, back-to-top and visit-counter toggles</li>
+<li><strong>contacts</strong> — footer social links, format <code>URL||icon</code>. The E-mail icon opens a modal with the addresses from the <code>email</code> list (click to copy) instead of launching a mail client</li>
+</ul>
+<h3 id="Language-switching"><a href="#Language-switching" class="headerlink" title="Language switching"></a>Language switching</h3><p>The <strong>EN &#x2F; CN</strong> toggle (top-right) jumps to the <code>/zh-CN/</code> prefixed routes.</p>
+<ul>
+<li>Static pages (About &#x2F; Friends &#x2F; Projects &#x2F; Gallery &#x2F; Theme &#x2F; 404) have real Chinese versions under <code>source/zh-CN/</code>, rendered natively by Hexo with language auto-detected via <code>i18n_dir</code></li>
+<li>Posts get <code>/zh-CN/</code> copies from <code>themes/komorebi/scripts/i18n.js</code> (Chinese UI, original content; write a <code>lang: zh-CN</code> post in <code>source/_posts/</code> for a translated version)</li>
+<li>UI strings come from <code>themes/komorebi/languages/</code>; the Chinese file must be named <code>zh-CN.yml</code> (case-sensitive)</li>
+</ul>
+<h3 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h3><ul>
+<li>Index: <code>search.json</code> (EN) &#x2F; <code>zh-CN/search.json</code> (CN), generated by <code>themes/komorebi/scripts/search.js</code></li>
+<li>Entry points: the topbar magnifier, or <strong>Tag Search</strong> in the homepage terminal</li>
+<li>Matches: title (highest weight), tags, categories, body text</li>
+</ul>
+<h3 id="Common-tasks"><a href="#Common-tasks" class="headerlink" title="Common tasks"></a>Common tasks</h3><ul>
+<li>New post: <code>hexo new &quot;Title&quot;</code>; front matter can carry <code>categories</code> &#x2F; <code>tags</code> &#x2F; <code>description</code></li>
+<li>Friends: edit the <code>links:</code> data in <code>source/links/index.md</code></li>
+<li>Projects: add <code>projects:</code> data in <code>source/project/index.md</code></li>
+<li>Gallery: edit the <code>gallery:</code> list in <code>source/gallery/index.md</code>, images live in <code>source/img/gallery/</code></li>
+<li>Categories: <code>/categories/&lt;name&gt;/</code> appears once a post exists in that category</li>
+<li>404 page: built in, at <code>source/404.md</code></li>
+</ul>
+<h3 id="Testing"><a href="#Testing" class="headerlink" title="Testing"></a>Testing</h3><p><code>npm test</code> runs unit tests (i18n &#x2F; search-index generators); <code>npm run smoke</code> checks the built output including a full dead-link scan. See <code>TESTING.md</code> at the repo root.</p>
+</div><div class="pagination-wrapper"></div></div></main><footer class="site-footer"><div class="footer-inner"><div class="social-links"><a class="social-link" href="mailto:fearlessyuzuki@xs.wbu.edu.cn" title="E-mail" rel="noopener"><i class="fas fa-envelope"></i></a><a class="social-link" href="https://github.com/FearlessYuzuki" title="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a><a class="social-link" href="https://space.bilibili.com/292010680" title="Bilibili" target="_blank" rel="noopener"><i class="fab fa-bilibili"></i></a></div><div class="footer-meta"><span class="copyright">&copy; 2019&ndash;2026 sorrow</span><span class="separator">&middot;</span><span>Powered by<a href="https://hexo.io" target="_blank">Hexo</a> &amp; <a href="#">Komorebi</a></span></div><div class="visit-count"><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span class="separator">|</span><span><i class="fas fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div></footer></div><button class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button><div class="search-overlay" id="search-overlay"><div class="search-panel"><div class="search-bar"><div class="window-dots"><span class="dot dot-close"></span><span class="dot dot-min"></span><span class="dot dot-max"></span></div><span class="search-bar-title"><i class="fas fa-search"></i> Tag Search</span><button class="search-close" aria-label="Close" type="button"><i class="fas fa-times"></i></button></div><div class="search-input-wrap"><input id="search-input" type="text" placeholder="Search..." autocomplete="off" spellcheck="false" aria-label="Search..."></div><div class="search-results" id="search-results"></div><div class="search-empty" id="search-empty" data-first="Loading index...">No results found</div></div></div><script src="/js/main.js"></script></body></html>
