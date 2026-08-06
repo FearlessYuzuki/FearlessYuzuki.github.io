@@ -490,6 +490,17 @@ body.page .site-content {
 .dot-max { background: var(--accent-green); }
 
 /* Topbar Avatar */
+.topbar-avatar-link {
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  transition: all 0.3s var(--ease-hypr);
+}
+
+.topbar-avatar-link:hover {
+  transform: scale(1.08);
+}
+
 .topbar-avatar {
   width: 30px;
   height: 30px;
@@ -535,6 +546,24 @@ body.page .site-content {
   align-items: center;
   gap: 6px;
   flex-shrink: 0;
+}
+
+/* Topbar Home */
+.topbar-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 14px;
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  transition: all 0.3s var(--ease-hypr);
+  line-height: 1;
+}
+
+.topbar-home:hover {
+  color: var(--accent);
+  background: rgba(var(--accent-rgb), 0.1);
 }
 
 /* Topbar Search */
@@ -671,14 +700,16 @@ body.page .site-content {
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--text-secondary);
   line-height: 1;
   white-space: nowrap;
 }
 
 .clock-date {
+  display: inline;
+  margin-left: 8px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--text-light);
   line-height: 1;
@@ -1947,10 +1978,11 @@ body.page .site-content {
 .timeline-item {
   position: relative;
   padding: 10px 16px;
+  margin-bottom: 8px;
   display: flex;
   align-items: baseline;
   gap: 16px;
-  border: 1px solid transparent;
+  border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   transition: all 0.3s var(--ease-hypr);
 }
@@ -1965,10 +1997,10 @@ body.page .site-content {
 }
 
 .timeline-date {
-  font-size: 13px;
+  font-size: 16px;
   color: var(--text-light);
   white-space: nowrap;
-  min-width: 70px;
+  min-width: 78px;
   font-family: var(--font-mono);
   font-weight: 700;
 }
