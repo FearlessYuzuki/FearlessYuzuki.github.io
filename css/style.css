@@ -6,63 +6,63 @@
 
 @import url("https://fontsapi.zeoseven.com/442/main/result.css");
 
-/* ---- CSS Variables — Warm Dark Gray (default) ---- */
+/* ---- CSS Variables — Tokyo Night (default dark) ---- */
 :root,
 [data-theme="dark"] {
-  --bg: #38302A;           /* surface0 */
-  --bg-secondary: #423933;  /* surface1 */
-  --bg-tertiary: #4B413A;   /* surface2 */
-  --bg-mantle: #2A231E;     /* mantle */
-  --bg-crust: #2C2420;      /* page background — deep warm gray, not pure black */
-  --text: #F2EDE7;          /* warm off-white */
-  --text-secondary: #C9C0B6;
-  --text-light: #93897E;
-  --text-sub: #6B6159;
-  --border: #4B413A;
-  --border-light: #5A4F47;
-  --accent: #60A5FA;         /* blue-400 */
-  --accent-green: #4ADE80;   /* green-400 */
-  --accent-pink: #F472B6;    /* pink-400 */
-  --accent-peach: #FB923C;   /* orange-400 */
-  --accent-mauve: #C084FC;   /* purple-400 */
-  --accent-red: #F87171;     /* red-400 */
-  --accent-yellow: #FACC15;  /* yellow-400 */
-  --accent-teal: #2DD4BF;    /* teal-400 */
-  --accent-sky: #38BDF8;     /* sky-400 */
-  --link: #7DD3FC;           /* sky-300 */
-  --code-bg: #241E1A;
+  --bg: #16161E;           /* surface0 — sideBar */
+  --bg-secondary: #202330;  /* surface1 — list active selection */
+  --bg-tertiary: #292E42;   /* surface2 — bg_highlight */
+  --bg-mantle: #101014;     /* mantle — input/terminal */
+  --bg-crust: #1A1B26;      /* page background — editor bg */
+  --text: #C0CAF5;          /* fg */
+  --text-secondary: #A9B1D6; /* fg_dark */
+  --text-light: #787C99;    /* lineNumber.activeForeground */
+  --text-sub: #545C7E;      /* dark5 */
+  --border: #292E42;
+  --border-light: #414868;
+  --accent: #7AA2F7;         /* blue */
+  --accent-green: #9ECE6A;   /* green */
+  --accent-pink: #FF007C;    /* magenta2 */
+  --accent-peach: #FF9E64;   /* orange */
+  --accent-mauve: #BB9AF7;   /* magenta */
+  --accent-red: #F7768E;     /* red */
+  --accent-yellow: #E0AF68;  /* yellow */
+  --accent-teal: #73DACA;    /* green1 */
+  --accent-sky: #7DCFFF;     /* cyan */
+  --link: #7AA2F7;           /* blue */
+  --code-bg: #101014;
   --shadow: rgba(0, 0, 0, 0.45);
-  --glass-bg: rgba(44, 36, 32, 0.72);
-  --glass-border: rgba(242, 237, 231, 0.10);
+  --glass-bg: rgba(22, 22, 30, 0.72);
+  --glass-border: rgba(192, 202, 245, 0.10);
   --glass-blur: 50px;
-  --body-bg-overlay: rgba(24, 19, 16, 0.55);
+  --body-bg-overlay: rgba(10, 10, 13, 0.55);
 
   /* RGB triples for translucent tints (theme-aware) */
-  --accent-rgb: 96, 165, 250;
-  --mauve-rgb: 192, 132, 252;
-  --green-rgb: 74, 222, 128;
-  --teal-rgb: 45, 212, 191;
-  --yellow-rgb: 250, 204, 21;
-  --sky-rgb: 56, 189, 248;
-  --border-rgb: 75, 65, 58;
+  --accent-rgb: 122, 162, 247;
+  --mauve-rgb: 187, 154, 247;
+  --green-rgb: 158, 206, 106;
+  --teal-rgb: 115, 218, 202;
+  --yellow-rgb: 224, 175, 104;
+  --sky-rgb: 125, 207, 255;
+  --border-rgb: 41, 46, 66;
 
   /* Glass surfaces (dark, translucent) */
-  --topbar-bg: rgba(38, 31, 27, 0.7);
-  --topbar-bg-hover: rgba(44, 36, 32, 0.85);
-  --dropdown-bg: rgba(38, 31, 27, 0.95);
-  --panel-bg: rgba(30, 25, 21, 0.75);
-  --panel-bg-soft: rgba(30, 25, 21, 0.65);
-  --bar-bg: rgba(44, 36, 32, 0.6);
-  --bar-bg-soft: rgba(44, 36, 32, 0.5);
+  --topbar-bg: rgba(22, 22, 30, 0.7);
+  --topbar-bg-hover: rgba(32, 35, 48, 0.85);
+  --dropdown-bg: rgba(22, 22, 30, 0.95);
+  --panel-bg: rgba(16, 16, 20, 0.75);
+  --panel-bg-soft: rgba(16, 16, 20, 0.65);
+  --bar-bg: rgba(32, 35, 48, 0.6);
+  --bar-bg-soft: rgba(32, 35, 48, 0.5);
 
-  /* High-contrast rainbow palette (bright variants pop on dark) */
-  --rgb1: #60A5FA;  --rgb1-rgb: 96, 165, 250;
-  --rgb2: #C084FC;  --rgb2-rgb: 192, 132, 252;
-  --rgb3: #F472B6;  --rgb3-rgb: 244, 114, 182;
-  --rgb4: #F87171;  --rgb4-rgb: 248, 113, 113;
-  --rgb5: #FB923C;  --rgb5-rgb: 251, 146, 60;
-  --rgb6: #4ADE80;  --rgb6-rgb: 74, 222, 128;
-  --rgb7: #2DD4BF;  --rgb7-rgb: 45, 212, 191;
+  /* High-contrast rainbow palette (Tokyo Night accents) */
+  --rgb1: #7AA2F7;  --rgb1-rgb: 122, 162, 247;
+  --rgb2: #BB9AF7;  --rgb2-rgb: 187, 154, 247;
+  --rgb3: #FF007C;  --rgb3-rgb: 255, 0, 124;
+  --rgb4: #F7768E;  --rgb4-rgb: 247, 118, 142;
+  --rgb5: #FF9E64;  --rgb5-rgb: 255, 158, 100;
+  --rgb6: #9ECE6A;  --rgb6-rgb: 158, 206, 106;
+  --rgb7: #7DCFFF;  --rgb7-rgb: 125, 207, 255;
 
   --font-main: system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
   --font-sans: system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
@@ -83,62 +83,61 @@
   --ease-hypr-inout: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-/* ---- CSS Variables — Warm White (Light) ----
-   Warm off-white base (#FDFBF7), no pure white;
-   same high-contrast rainbow accents, deepened for contrast. */
+/* ---- CSS Variables — Tokyo Night (Light) ----
+   Cool blue-gray base, Tokyo Night Light palette */
 [data-theme="light"] {
-  --bg: #FDFAF4;
-  --bg-secondary: #F3EDE3;
-  --bg-tertiary: #EAE3D6;
-  --bg-mantle: #F7F2EA;
-  --bg-crust: #FDFBF7;      /* page background — warm white */
-  --text: #2B2621;          /* warm near-black */
-  --text-secondary: #6E665B;
-  --text-light: #A29A8D;
-  --text-sub: #CFC7BA;
-  --border: #E2DACB;
-  --border-light: #EDE5D8;
-  --accent: #2563EB;         /* blue-600 */
-  --accent-green: #16A34A;   /* green-600 */
-  --accent-pink: #DB2777;    /* pink-600 */
-  --accent-peach: #EA580C;   /* orange-600 */
-  --accent-mauve: #9333EA;   /* purple-600 */
-  --accent-red: #DC2626;     /* red-600 */
-  --accent-yellow: #CA8A04;  /* yellow-600 */
-  --accent-teal: #0D9488;    /* teal-600 */
-  --accent-sky: #0284C7;     /* sky-600 */
-  --link: #2563EB;
-  --code-bg: #F5EFE5;
-  --shadow: rgba(43, 38, 33, 0.12);
-  --glass-bg: rgba(253, 251, 247, 0.85);
-  --glass-border: rgba(43, 38, 33, 0.12);
+  --bg: #D6D8DF;
+  --bg-secondary: #C4C6D1;
+  --bg-tertiary: #9699A3;
+  --bg-mantle: #E6E7ED;
+  --bg-crust: #D5D6DB;      /* page background */
+  --text: #343B58;          /* fg_dark */
+  --text-secondary: #545A6E;
+  --text-light: #848CB5;
+  --text-sub: #ACB0BF;
+  --border: #C4C6D1;
+  --border-light: #DCDEE3;
+  --accent: #2E7DE9;         /* blue */
+  --accent-green: #587539;   /* green */
+  --accent-pink: #F52A65;    /* magenta2 */
+  --accent-peach: #B15C00;   /* orange */
+  --accent-mauve: #9854F1;   /* magenta */
+  --accent-red: #8C4351;     /* red */
+  --accent-yellow: #8C6C3E;  /* yellow */
+  --accent-teal: #007A75;    /* teal */
+  --accent-sky: #007197;     /* cyan */
+  --link: #2E7DE9;
+  --code-bg: #E6E7ED;
+  --shadow: rgba(29, 32, 47, 0.12);
+  --glass-bg: rgba(213, 214, 219, 0.85);
+  --glass-border: rgba(29, 32, 47, 0.12);
   --glass-blur: 50px;
-  --body-bg-overlay: rgba(253, 251, 247, 0.6);
+  --body-bg-overlay: rgba(213, 214, 219, 0.6);
 
-  --accent-rgb: 37, 99, 235;
-  --mauve-rgb: 147, 51, 234;
-  --green-rgb: 22, 163, 74;
-  --teal-rgb: 13, 148, 136;
-  --yellow-rgb: 202, 138, 4;
-  --sky-rgb: 2, 132, 199;
-  --border-rgb: 226, 218, 203;
+  --accent-rgb: 46, 125, 233;
+  --mauve-rgb: 152, 84, 241;
+  --green-rgb: 88, 117, 57;
+  --teal-rgb: 0, 122, 117;
+  --yellow-rgb: 140, 108, 62;
+  --sky-rgb: 0, 113, 151;
+  --border-rgb: 196, 198, 209;
 
-  --topbar-bg: rgba(253, 251, 247, 0.8);
-  --topbar-bg-hover: rgba(253, 251, 247, 0.93);
-  --dropdown-bg: rgba(253, 251, 247, 0.97);
-  --panel-bg: rgba(255, 253, 249, 0.88);
-  --panel-bg-soft: rgba(255, 253, 249, 0.84);
-  --bar-bg: rgba(247, 242, 234, 0.9);
-  --bar-bg-soft: rgba(247, 242, 234, 0.85);
+  --topbar-bg: rgba(213, 214, 219, 0.8);
+  --topbar-bg-hover: rgba(213, 214, 219, 0.93);
+  --dropdown-bg: rgba(213, 214, 219, 0.97);
+  --panel-bg: rgba(230, 231, 237, 0.88);
+  --panel-bg-soft: rgba(230, 231, 237, 0.84);
+  --bar-bg: rgba(214, 216, 223, 0.9);
+  --bar-bg-soft: rgba(214, 216, 223, 0.85);
 
-  /* High-contrast rainbow palette (deepened for contrast on warm white) */
-  --rgb1: #2563EB;  --rgb1-rgb: 37, 99, 235;
-  --rgb2: #9333EA;  --rgb2-rgb: 147, 51, 234;
-  --rgb3: #DB2777;  --rgb3-rgb: 219, 39, 119;
-  --rgb4: #DC2626;  --rgb4-rgb: 220, 38, 38;
-  --rgb5: #EA580C;  --rgb5-rgb: 234, 88, 12;
-  --rgb6: #16A34A;  --rgb6-rgb: 22, 163, 74;
-  --rgb7: #0D9488;  --rgb7-rgb: 13, 148, 136;
+  /* Tokyo Night Light accents */
+  --rgb1: #2E7DE9;  --rgb1-rgb: 46, 125, 233;
+  --rgb2: #9854F1;  --rgb2-rgb: 152, 84, 241;
+  --rgb3: #F52A65;  --rgb3-rgb: 245, 42, 101;
+  --rgb4: #8C4351;  --rgb4-rgb: 140, 67, 81;
+  --rgb5: #B15C00;  --rgb5-rgb: 177, 92, 0;
+  --rgb6: #587539;  --rgb6-rgb: 88, 117, 57;
+  --rgb7: #007197;  --rgb7-rgb: 0, 113, 151;
 }
 
 /* ---- RGB Border Animation (theme-aware palette) ---- */
