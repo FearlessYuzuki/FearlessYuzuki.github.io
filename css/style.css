@@ -4,6 +4,8 @@
    Warm dark gray (default) / warm white (light)
    ======================================== */
 
+@import url("https://fontsapi.zeoseven.com/442/main/result.css");
+
 /* ---- CSS Variables — Warm Dark Gray (default) ---- */
 :root,
 [data-theme="dark"] {
@@ -62,10 +64,10 @@
   --rgb6: #4ADE80;  --rgb6-rgb: 74, 222, 128;
   --rgb7: #2DD4BF;  --rgb7-rgb: 45, 212, 191;
 
-  --font-main: 'Noto Sans Mono', ui-monospace, 'SF Mono', Consolas, monospace;
-  --font-sans: 'Noto Sans Mono', ui-monospace, 'SF Mono', Consolas, monospace;
-  --font-mono: 'Noto Sans Mono', ui-monospace, 'SF Mono', Consolas, monospace;
-  --font-serif: 'Noto Sans Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+  --font-main: 'Maple Mono NF CN', 'Maple Mono CN', ui-monospace, 'SF Mono', Consolas, monospace;
+  --font-sans: 'Maple Mono NF CN', 'Maple Mono CN', ui-monospace, 'SF Mono', Consolas, monospace;
+  --font-mono: 'Maple Mono NF CN', 'Maple Mono CN', ui-monospace, 'SF Mono', Consolas, monospace;
+  --font-serif: 'Maple Mono NF CN', 'Maple Mono CN', ui-monospace, 'SF Mono', Consolas, monospace;
 
   --nav-height: 40px;
   --nav-top: 24px;
