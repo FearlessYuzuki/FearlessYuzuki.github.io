@@ -64,10 +64,10 @@
   --rgb6: #4ADE80;  --rgb6-rgb: 74, 222, 128;
   --rgb7: #2DD4BF;  --rgb7-rgb: 45, 212, 191;
 
-  --font-main: 'Maple Mono NF CN', 'Maple Mono CN', ui-monospace, 'SF Mono', Consolas, monospace;
-  --font-sans: 'Maple Mono NF CN', 'Maple Mono CN', ui-monospace, 'SF Mono', Consolas, monospace;
+  --font-main: system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
   --font-mono: 'Maple Mono NF CN', 'Maple Mono CN', ui-monospace, 'SF Mono', Consolas, monospace;
-  --font-serif: 'Maple Mono NF CN', 'Maple Mono CN', ui-monospace, 'SF Mono', Consolas, monospace;
+  --font-serif: system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
 
   --nav-height: 40px;
   --nav-top: 24px;
@@ -1695,14 +1695,9 @@ body.page .site-content {
 .post-content {
   font-family: var(--font-serif);
   font-size: 16px;
-  line-height: 2;
+  line-height: 1.9;
   color: var(--text);
-  padding: 32px;
-  background: var(--glass-bg);
-  backdrop-filter: blur(50px) saturate(1.4);
-  -webkit-backdrop-filter: blur(50px) saturate(1.4);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
+  padding: 8px 0 0;
 }
 
 .post-content h1,
@@ -1711,7 +1706,7 @@ body.page .site-content {
 .post-content h4,
 .post-content h5,
 .post-content h6 {
-  margin-top: 48px;
+  margin-top: 40px;
   margin-bottom: 16px;
   color: var(--text);
 }
