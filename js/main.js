@@ -609,6 +609,33 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // ---- Music Player ----
+  var musicPlayer = document.getElementById('music-player');
+  var playBtn = document.getElementById('music-player-play');
+  var playIcon = document.getElementById('music-player-play-icon');
+  var playerFrame = document.getElementById('music-player-frame');
+
+  if (musicPlayer && playBtn && playIcon && playerFrame) {
+    var songId = musicPlayer.getAttribute('data-song-id');
+    var playing = false;
+
+    function setPlaying(state) {
+      playing = state;
+      musicPlayer.classList.toggle('playing', playing);
+      playIcon.className = playing ? 'fas fa-pause' : 'fas fa-play';
+      if (playing) {
+        playerFrame.innerHTML = '<iframe src="https://music.163.com/outchain/player?type=2&id=' + songId + '&auto=1&height=66" width="100%" height="66" frameborder="no" allow="autoplay"></iframe>';
+      } else {
+        playerFrame.innerHTML = '';
+      }
+    }
+
+    playBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      setPlaying(!playing);
+    });
+  }
+
   // ---- Smooth scroll for TOC links ----
   var tocLinks = document.querySelectorAll('.toc-link');
 
