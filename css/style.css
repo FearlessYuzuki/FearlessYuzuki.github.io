@@ -2926,6 +2926,7 @@ body.page .site-content {
 
 .music-section {
   margin-top: 24px;
+  font-family: var(--font-mono);
 }
 
 .music-header {
@@ -2951,7 +2952,7 @@ body.page .site-content {
   min-width: 0;
 }
 
-.music-name {
+.music-header .music-name {
   font-size: 20px;
   margin: 0 0 8px;
   color: var(--text-primary);
@@ -2994,6 +2995,10 @@ body.page .site-content {
   transition: background 0.25s var(--ease-hypr);
 }
 
+.music-item > span {
+  line-height: 20px;
+}
+
 .music-item:last-child {
   border-bottom: none;
 }
@@ -3033,6 +3038,7 @@ body.page .site-content {
 
 .music-history {
   margin-top: 28px;
+  font-family: var(--font-mono);
 }
 
 .music-history-title {
@@ -3105,6 +3111,7 @@ body.page .site-content {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-mono);
 }
 
 .music-player-disc {
@@ -3263,5 +3270,289 @@ body.page .site-content {
   .music-player-disc {
     width: 92px;
     height: 92px;
+  }
+}
+
+.music-player-collapse {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--glass-bg);
+  color: var(--text-light);
+  font-size: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  transition: all 0.25s var(--ease-hypr);
+}
+
+.music-player-collapse:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.music-player-collapse-open {
+  display: none;
+}
+
+.music-player.collapsed {
+  width: auto;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.music-player.collapsed .music-player-collapse {
+  position: static;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  font-size: 15px;
+  background: var(--glass-bg);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.music-player.collapsed .music-player-collapse-close {
+  display: none;
+}
+
+.music-player.collapsed .music-player-collapse-open {
+  display: block;
+  color: #00e5ff;
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
+}
+
+.music-player.collapsed .music-player-disc,
+.music-player.collapsed .music-player-track,
+.music-player.collapsed .music-player-controls,
+.music-player.collapsed .music-player-frame,
+.music-player.collapsed .music-player-page {
+  display: none;
+}
+
+.profile-card {
+  position: fixed;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+  width: 210px;
+  max-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 14px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  font-family: var(--font-mono);
+}
+
+.profile-avatar-link {
+  display: block;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--accent);
+  transition: transform 0.3s var(--ease-hypr);
+}
+
+.profile-avatar-link:hover {
+  transform: scale(1.06);
+}
+
+.profile-avatar {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.profile-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.profile-about {
+  font-size: 12px;
+  color: var(--text-light);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.profile-motto {
+  font-size: 12px;
+  color: var(--accent);
+  text-align: center;
+  font-style: italic;
+  line-height: 1.5;
+  padding: 8px 10px;
+  border-left: 2px solid var(--accent);
+  background: var(--body-bg);
+}
+
+.profile-motto i {
+  margin-right: 4px;
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.profile-stats {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.profile-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.profile-stat-num {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.profile-stat-label {
+  font-size: 11px;
+  color: var(--text-light);
+}
+
+.profile-repos {
+  width: 100%;
+}
+
+.profile-repos-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.profile-repos-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-repos-list li a {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 6px 8px;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.25s var(--ease-hypr);
+}
+
+.profile-repos-list li a:hover {
+  border-color: var(--accent);
+}
+
+.profile-repo-name {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-repo-meta {
+  font-size: 11px;
+  color: var(--text-light);
+}
+
+.profile-repos-loading {
+  font-size: 12px;
+  color: var(--text-light);
+  padding: 6px 0;
+}
+
+.profile-repos-loading a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.profile-repos-loading a:hover {
+  text-decoration: underline;
+}
+
+.profile-heatmap-link {
+  width: 100%;
+}
+
+.profile-heatmap {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: repeat(7, 8px);
+  grid-auto-flow: column;
+  grid-auto-columns: 8px;
+  gap: 3px;
+  justify-content: start;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--body-bg);
+}
+
+.heat-cell {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.heat-cell.l1 {
+  background: rgba(139, 233, 148, 0.3);
+}
+
+.heat-cell.l2 {
+  background: rgba(139, 233, 148, 0.55);
+}
+
+.heat-cell.l3 {
+  background: rgba(139, 233, 148, 0.8);
+}
+
+.heat-cell.l4 {
+  background: rgba(139, 233, 148, 1);
+}
+
+.profile-heatmap-fallback {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  filter: invert(0.92) hue-rotate(180deg);
+}
+
+@media (max-width: 1024px) {
+  .profile-card {
+    display: none;
   }
 }

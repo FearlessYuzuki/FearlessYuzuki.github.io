@@ -609,11 +609,131 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // ---- Profile Card: GitHub repos ----
+  var profileCard = document.getElementById('profile-card');
+  var reposList = document.getElementById('profile-repos-list');
+
+  if (profileCard && reposList) {
+    var githubUser = profileCard.getAttribute('data-github');
+
+    fetch('https://api.github.com/users/' + githubUser + '/repos?sort=updated&per_page=5&type=owner')
+      .then(function (res) {
+        if (!res.ok) throw new Error('GitHub API ' + res.status);
+        return res.json();
+      })
+      .then(function (repos) {
+        if (!repos || !repos.length) {
+          reposList.innerHTML = '<li class="profile-repos-loading">暂无公开项目</li>';
+          return;
+        }
+        reposList.innerHTML = '';
+        repos.forEach(function (repo) {
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.href = repo.html_url;
+          a.target = '_blank';
+          a.rel = 'noopener';
+
+          var name = document.createElement('span');
+          name.className = 'profile-repo-name';
+          name.textContent = repo.name;
+
+          var meta = document.createElement('span');
+          meta.className = 'profile-repo-meta';
+          var parts = [];
+          if (repo.language) parts.push(repo.language);
+          if (repo.stargazers_count > 0) parts.push('★ ' + repo.stargazers_count);
+          meta.textContent = parts.join(' · ') || repo.updated_at.slice(0, 10);
+
+          a.appendChild(name);
+          a.appendChild(meta);
+          li.appendChild(a);
+          reposList.appendChild(li);
+        });
+      })
+      .catch(function () {
+        reposList.innerHTML = '<li class="profile-repos-loading"><a href="https://github.com/' + githubUser + '" target="_blank" rel="noopener">项目加载失败 · 打开 GitHub</a></li>';
+      });
+  }
+
+  // ---- Profile Card: GitHub heatmap ----
+  var heatmap = document.getElementById('profile-heatmap');
+
+  if (profileCard && heatmap) {
+    var githubUser = profileCard.getAttribute('data-github');
+
+    function renderHeatmap(contributions) {
+      var byDate = {};
+      contributions.forEach(function (c) {
+        byDate[c.date] = c.level;
+      });
+
+      var end = new Date();
+      end.setHours(0, 0, 0, 0);
+      var start = new Date(end);
+      start.setDate(start.getDate() - 104);
+
+      heatmap.innerHTML = '';
+      var d = new Date(start);
+      while (d <= end) {
+        var key = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+        var lv = byDate[key] || 0;
+        var cell = document.createElement('span');
+        cell.className = 'heat-cell' + (lv ? ' l' + lv : '');
+        heatmap.appendChild(cell);
+        d.setDate(d.getDate() + 1);
+      }
+    }
+
+    fetch('https://github-contributions-api.jogruber.de/v4/' + githubUser)
+      .then(function (res) {
+        if (!res.ok) throw new Error('contrib API ' + res.status);
+        return res.json();
+      })
+      .then(function (json) {
+        renderHeatmap(json.contributions || []);
+      })
+      .catch(function () {
+        var img = document.createElement('img');
+        img.src = 'https://ghchart.rshah.org/' + githubUser;
+        img.alt = 'GitHub contributions';
+        img.loading = 'lazy';
+        img.className = 'profile-heatmap-fallback';
+        heatmap.appendChild(img);
+      });
+  }
+
   // ---- Music Player ----
   var musicPlayer = document.getElementById('music-player');
   var playBtn = document.getElementById('music-player-play');
   var playIcon = document.getElementById('music-player-play-icon');
   var playerFrame = document.getElementById('music-player-frame');
+  var musicCollapse = document.getElementById('music-player-collapse');
+
+  function storageGet(key) {
+    try { return localStorage.getItem(key); } catch (e) { return null; }
+  }
+
+  function storageSet(key, val) {
+    try { localStorage.setItem(key, val); } catch (e) { /* ignore */ }
+  }
+
+  if (musicCollapse && musicPlayer) {
+    musicCollapse.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var collapsed = musicPlayer.classList.toggle('collapsed');
+      storageSet('musicPlayerCollapsed', collapsed ? '1' : '0');
+    });
+  }
+
+  if (musicPlayer) {
+    var isMobile = window.matchMedia('(max-width: 768px)').matches || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (isMobile) {
+      musicPlayer.classList.add('collapsed');
+    } else if (storageGet('musicPlayerCollapsed') === '1') {
+      musicPlayer.classList.add('collapsed');
+    }
+  }
 
   if (musicPlayer && playBtn && playIcon && playerFrame) {
     var songId = musicPlayer.getAttribute('data-song-id');
