@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;zh-CN&quot;,&quot;default&quot;]"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>水月雨 RAYS 光束：我的 EQ 调音笔记 | Yuzuik's Blog</title><meta charset="UTF-8"><meta name="description" content="Log &amp; Dev"><meta name="keywords" content="C++, Linux, UE, Unity, Hexo, Rust, Java, C#, Algorithms"><meta name="author" content="sorrow"><link rel="icon" type="image/svg+xml" href="/img/avatar.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;700&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="/css/style.css?v=1788009114842"><script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.32.2/tocbot.min.js"></script><script>window.komorebiConfig = {
+  emails: ["fearlessyuzuki@xs.wbu.edu.cn","fearlessyuzuki@foxmail.com"]
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script>MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});</script><meta name="generator" content="Hexo 8.1.2"></head><body class="post"><div class="site-wrapper"><nav class="topbar"><div class="topbar-left"><div class="window-controls"><span class="dot dot-close"></span><span class="dot dot-min"></span><span class="dot dot-max"></span></div><a class="topbar-avatar-link" href="/" aria-label="Home"><img class="topbar-avatar" src="/img/avatar.svg" alt="sorrow"></a><div class="topbar-user"><div class="topbar-username">sorrow</div><div class="topbar-hostname">@Yuzuik's Blog</div></div></div><div class="topbar-spacer"></div><div class="topbar-right"><a class="topbar-home" href="/" aria-label="Home"><i class="fas fa-house"></i></a><div class="topbar-search"><button class="topbar-search-toggle" aria-label="Search"><i class="fas fa-search"></i></button></div><button class="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon theme-icon-dark"></i><i class="fas fa-sun theme-icon-light"></i></button><div class="topbar-lang"><button class="topbar-lang-toggle" type="button" aria-label="Switch Language"><span class="lang-current">EN</span><div class="topbar-lang-dropdown"><a class="topbar-lang-option" href="#" data-lang="en">EN</a><a class="topbar-lang-option" href="#" data-lang="zh-CN">CN</a></div></button></div><div class="topbar-clock"><div class="clock-time"><span id="clock-time">--:--</span><span class="clock-date" id="clock-date">----- //</span></div></div></div></nav><main class="site-content"><article class="post-main"><header class="post-header"><div class="post-header-bar"><div class="window-dots"><span class="dot dot-close"></span><span class="dot dot-min"></span><span class="dot dot-max"></span></div><span class="post-header-path">Published</span></div><h1 class="post-title">水月雨 RAYS 光束：我的 EQ 调音笔记</h1><div class="post-meta"><time class="post-meta-item" datetime="2026-08-28T18:00:00.000Z"><i class="fas fa-calendar-alt"></i>2026-08-29</time><span class="post-meta-item"><i class="fas fa-folder"></i><a class="post-category" href="/categories/Audio/">Audio</a></span><span class="post-meta-item"><i class="fas fa-file-alt"></i>1.3k words</span><span class="post-meta-item"><i class="fas fa-clock"></i>5 min read</span></div><div class="post-tags"><a class="post-tag" href="/tags/Audio/"><i class="fas fa-tag"></i> Audio</a><a class="post-tag" href="/tags/EQ/"><i class="fas fa-tag"></i> EQ</a><a class="post-tag" href="/tags/DSP/"><i class="fas fa-tag"></i> DSP</a><a class="post-tag" href="/tags/MOONDROP/"><i class="fas fa-tag"></i> MOONDROP</a><a class="post-tag" href="/tags/HiFi/"><i class="fas fa-tag"></i> HiFi</a></div></header><div class="post-content"><h1 id="水月雨-RAYS-光束：我的-EQ-调音笔记"><a href="#水月雨-RAYS-光束：我的-EQ-调音笔记" class="headerlink" title="水月雨 RAYS 光束：我的 EQ 调音笔记"></a>水月雨 RAYS 光束：我的 EQ 调音笔记</h1><blockquote>
+<p>设备：水月雨 MOONDROP RAYS 光束（专业游戏入耳式耳机）<br>本文记录我在这条塞子上调校的 PEQ 参数、每段滤波器的意图，以及一点主观听感。参数仅供参考，调音归根到底还是耳朵说了算。</p>
+</blockquote>
+<h2 id="设备简介"><a href="#设备简介" class="headerlink" title="设备简介"></a>设备简介</h2><p>RAYS 光束是水月雨”陨月重工”专业游戏系列的产品，主打 HiFi 声学底子 + 电竞体验：</p>
+<ul>
+<li><strong>单元配置</strong>：10mm 蓝宝石振膜动圈 + 6mm 环形平面磁单元（动圈 + 平板混合双单元）</li>
+<li><strong>阻抗 &#x2F; 灵敏度</strong>：30Ω ± 15%（@1kHz）&#x2F; 120dB&#x2F;Vrms（@1kHz）</li>
+<li><strong>频响范围</strong>：7Hz – 39kHz（有效频响 20Hz – 20kHz，IEC60318-4）</li>
+<li><strong>总谐波失真</strong>：THD ≤ 0.05%（@1kHz）</li>
+<li><strong>接口</strong>：0.78-2pin 可换线，标配 USB-C 线（内置 DSP 游戏声卡）</li>
+<li><strong>调音</strong>：出厂接近 VDSF 曲线，另带硬件级 AI 降噪麦克风</li>
+</ul>
+<p>它最大的特点是<strong>内置 DSP 游戏声卡</strong>：EQ 参数可以写进声卡并记忆存储，换设备、掉驱动都不受影响，通过 <a target="_blank" rel="noopener" href="https://moondroplab.com/cn/moondrop-link">MOONDROP Link APP</a> 或 <a target="_blank" rel="noopener" href="https://hub.moondroplab.tech/">在线可视化调音平台</a> 随时调整。</p>
+<h2 id="我的-EQ-参数"><a href="#我的-EQ-参数" class="headerlink" title="我的 EQ 参数"></a>我的 EQ 参数</h2><p>当前在用的 8 段 PEQ，全部为 PK（峰值）滤波器：</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>中心频率</th>
+<th>增益</th>
+<th>Q 值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>21 Hz</td>
+<td>-7.1 dB</td>
+<td>0.500</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1200 Hz</td>
+<td>-0.5 dB</td>
+<td>0.900</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2000 Hz</td>
+<td>+0.5 dB</td>
+<td>1.300</td>
+</tr>
+<tr>
+<td>4</td>
+<td>3500 Hz</td>
+<td>-2.1 dB</td>
+<td>2.100</td>
+</tr>
+<tr>
+<td>5</td>
+<td>6700 Hz</td>
+<td>+2.7 dB</td>
+<td>1.900</td>
+</tr>
+<tr>
+<td>6</td>
+<td>11000 Hz</td>
+<td>-2.2 dB</td>
+<td>2.100</td>
+</tr>
+<tr>
+<td>7</td>
+<td>15000 Hz</td>
+<td>+1.2 dB</td>
+<td>3.500</td>
+</tr>
+<tr>
+<td>8</td>
+<td>18000 Hz</td>
+<td>-6.5 dB</td>
+<td>0.500</td>
+</tr>
+</tbody></table>
+<p>PEQ 文本格式（可直接粘贴给 Equalizer APO &#x2F; Wavelet &#x2F; Peace 等软件）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Filter 1: ON PK Fc 21 Hz Gain -7.1 dB Q 0.500</span><br><span class="line">Filter 2: ON PK Fc 1200 Hz Gain -0.5 dB Q 0.900</span><br><span class="line">Filter 3: ON PK Fc 2000 Hz Gain 0.5 dB Q 1.300</span><br><span class="line">Filter 4: ON PK Fc 3500 Hz Gain -2.1 dB Q 2.100</span><br><span class="line">Filter 5: ON PK Fc 6700 Hz Gain 2.7 dB Q 1.900</span><br><span class="line">Filter 6: ON PK Fc 11000 Hz Gain -2.2 dB Q 2.100</span><br><span class="line">Filter 7: ON PK Fc 15000 Hz Gain 1.2 dB Q 3.500</span><br><span class="line">Filter 8: ON PK Fc 18000 Hz Gain -6.5 dB Q 0.500</span><br></pre></td></tr></table></figure>
+
+<h2 id="每段滤波器在干什么"><a href="#每段滤波器在干什么" class="headerlink" title="每段滤波器在干什么"></a>每段滤波器在干什么</h2><h3 id="1-21-Hz，-7-1-dB，Q-0-5-——-极低频削峰"><a href="#1-21-Hz，-7-1-dB，Q-0-5-——-极低频削峰" class="headerlink" title="1. 21 Hz，-7.1 dB，Q 0.5 —— 极低频削峰"></a>1. 21 Hz，-7.1 dB，Q 0.5 —— 极低频削峰</h3><p>游戏耳机普遍把极低频做得比较足，21Hz 附近往往有个明显隆起。Q&#x3D;0.5 的宽峰削 7dB，只动极低频，几乎不碰 60–100Hz 的”低频心跳”，能明显减掉轰头感和低频对中频的掩蔽。</p>
+<h3 id="2-1200-Hz，-0-5-dB，Q-0-9-——-轻微清润"><a href="#2-1200-Hz，-0-5-dB，Q-0-9-——-轻微清润" class="headerlink" title="2. 1200 Hz，-0.5 dB，Q 0.9 —— 轻微清润"></a>2. 1200 Hz，-0.5 dB，Q 0.9 —— 轻微清润</h3><p>低频到中频的过渡区，略微去一点糊感和”鼻音”。量很小，不伤厚度，只是让声音干净一点。</p>
+<h3 id="3-2000-Hz，-0-5-dB，Q-1-3-——-中频存在感"><a href="#3-2000-Hz，-0-5-dB，Q-1-3-——-中频存在感" class="headerlink" title="3. 2000 Hz，+0.5 dB，Q 1.3 —— 中频存在感"></a>3. 2000 Hz，+0.5 dB，Q 1.3 —— 中频存在感</h3><p>2kHz 是人声可懂度和临场感的核心频段，+0.5dB 让中频更有存在感，游戏里的语音播报、BGM 人声会更清楚。</p>
+<h3 id="4-3500-Hz，-2-1-dB，Q-2-1-——-压齿音-刺激区"><a href="#4-3500-Hz，-2-1-dB，Q-2-1-——-压齿音-刺激区" class="headerlink" title="4. 3500 Hz，-2.1 dB，Q 2.1 —— 压齿音&#x2F;刺激区"></a>4. 3500 Hz，-2.1 dB，Q 2.1 —— 压齿音&#x2F;刺激区</h3><p>3–5kHz 是人耳最敏感的区域，RAYS 在这个频段能量偏多。削 2dB 之后刺感明显下降，长时间游戏、听高频密集的配乐也不会累，这也是全频段最重要的”耐听”手段之一。</p>
+<h3 id="5-6700-Hz，-2-7-dB，Q-1-9-——-存在感与定位"><a href="#5-6700-Hz，-2-7-dB，Q-1-9-——-存在感与定位" class="headerlink" title="5. 6700 Hz，+2.7 dB，Q 1.9 —— 存在感与定位"></a>5. 6700 Hz，+2.7 dB，Q 1.9 —— 存在感与定位</h3><p>整条 EQ 里最大的抬升。6–7kHz 是脚步声、枪械细节、结像与声像定位的关键频段，抬 2.7dB 后游戏里的方位感非常清晰，子弹和脚步的”指向性”一下就出来了。Q≈2 的窄峰，不会污染邻近频段。</p>
+<h3 id="6-11000-Hz，-2-2-dB，Q-2-1-——-压超高频峰"><a href="#6-11000-Hz，-2-2-dB，Q-2-1-——-压超高频峰" class="headerlink" title="6. 11000 Hz，-2.2 dB，Q 2.1 —— 压超高频峰"></a>6. 11000 Hz，-2.2 dB，Q 2.1 —— 压超高频峰</h3><p>RAYS 在 11kHz 附近有一个峰（动圈超高频共振的常见位置），镲片和合成器音色会显得偏亮、偏散。削掉之后高频更干净、更贴耳。</p>
+<h3 id="7-15000-Hz，-1-2-dB，Q-3-5-——-空气感"><a href="#7-15000-Hz，-1-2-dB，Q-3-5-——-空气感" class="headerlink" title="7. 15000 Hz，+1.2 dB，Q 3.5 —— 空气感"></a>7. 15000 Hz，+1.2 dB，Q 3.5 —— 空气感</h3><p>15kHz 微抬，给泛音补一点光泽和”空气感”。Q&#x3D;3.5 非常窄，只影响极高频顶端，日常几乎无副作用。</p>
+<h3 id="8-18000-Hz，-6-5-dB，Q-0-5-——-顶端兜底"><a href="#8-18000-Hz，-6-5-dB，Q-0-5-——-顶端兜底" class="headerlink" title="8. 18000 Hz，-6.5 dB，Q 0.5 —— 顶端兜底"></a>8. 18000 Hz，-6.5 dB，Q 0.5 —— 顶端兜底</h3><p>最顶端的宽带削峰，把 16–20kHz 整体拉平，压制可能的刺耳尖峰和系统噪底。人耳对 18kHz 以上本就不太敏感，这一段主要是”防刺”。</p>
+<h2 id="整体思路"><a href="#整体思路" class="headerlink" title="整体思路"></a>整体思路</h2><p>这套调音可以概括为三个词：<strong>去轰、去刺、抓细节</strong>。</p>
+<ul>
+<li>极低频大幅削（21Hz），告别低频轰鸣</li>
+<li>敏感频段压平（3.5kHz &#x2F; 11kHz），让声音耐听</li>
+<li>6.7kHz 重点抬升，保住游戏定位与细节</li>
+</ul>
+<p>最终呈现出一个低频干净、高频柔和、6–7kHz 突出的”游戏向耐听调音”，同时保留 RAYS 双单元本身的解析底子。拿来当 HiFi 塞子听人声，也不会出戏。</p>
+<h2 id="一些说明"><a href="#一些说明" class="headerlink" title="一些说明"></a>一些说明</h2><ul>
+<li>听感全部基于个人主观。不同耳塞套（硅胶 &#x2F; 记忆棉）、不同佩戴深度都会影响低频和齿音段的响应，参数仅供参考，建议从”全关”开始逐段加，亲自体会每段变化。</li>
+<li>RAYS 的 DSP 声卡可以直接存储这 8 段参数并记忆，MOONDROP Link APP 和在线调音平台都能编辑；Windows 上想走别的播放链路，也可以把这组参数原样丢进 Equalizer APO &#x2F; Wavelet。</li>
+<li>设备详情页：<a target="_blank" rel="noopener" href="https://moondroplab.com/cn/products/rays">水月雨 RAYS 光束</a>。</li>
+</ul>
+</div><div class="post-copyright"><p>All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stated additionally.</p></div><nav class="post-nav"><div class="post-nav-item post-nav-next"><span class="post-nav-label">Next</span><a class="post-nav-title" href="/2026/08/27/building-windows-resolution-changer/">从零构建 Windows 双屏分辨率切换工具：C#、EDID 与那些坑</a></div></nav></article><aside class="post-sidebar"><div class="toc-header"><i class="fas fa-list"></i> Contents</div><div id="toc-container"></div></aside></main><footer class="site-footer"><div class="footer-inner"><div class="social-links"><a class="social-link" href="mailto:fearlessyuzuki@xs.wbu.edu.cn" title="E-mail" rel="noopener"><i class="fas fa-envelope"></i></a><a class="social-link" href="https://github.com/FearlessYuzuki" title="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a><a class="social-link" href="https://space.bilibili.com/292010680" title="Bilibili" target="_blank" rel="noopener"><i class="fab fa-bilibili"></i></a></div><div class="footer-meta"><span class="copyright">&copy; 2019&ndash;2026 sorrow</span><span class="separator">&middot;</span><span>Powered by<a href="https://hexo.io" target="_blank">Hexo</a> &amp; <span>Tokyo Night</span></span></div><div class="visit-count"><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span class="separator">|</span><span><i class="fas fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div></footer></div><div class="music-player" id="music-player" data-song-id="3422762511" data-song-url="https://music.163.com/#/song?id=3422762511"><button class="music-player-collapse" id="music-player-collapse" type="button" aria-label="收起/展开播放器"><i class="fas fa-chevron-left music-player-collapse-close"></i><i class="fas fa-music music-player-collapse-open"></i></button><div class="music-player-disc"><img class="music-player-cover" src="https://p2.music.126.net/KfRXsofVqB9hx8lEpNhHBQ==/109951173772784805.jpg" alt="A Rusty Dream (from Cyberpunk: Edgerunners 2)"><div class="music-player-disc-hole"></div></div><div class="music-player-track"><div class="music-player-name" title="A Rusty Dream (from Cyberpunk: Edgerunners 2)">A Rusty Dream (from Cyberpunk: Edgerunners 2)</div><div class="music-player-artist">DOUDOU</div></div><div class="music-player-controls"><button class="music-player-play" id="music-player-play" type="button" aria-label="播放/暂停"><i class="fas fa-play" id="music-player-play-icon"></i></button><a class="music-player-open" href="https://music.163.com/#/song?id=3422762511" target="_blank" rel="noopener" aria-label="打开网易云" title="在网易云打开"><i class="fas fa-external-link-alt"></i></a></div><div class="music-player-frame" id="music-player-frame"></div><a class="music-player-page" href="/music/">daydream · 歌单 <i class="fas fa-chevron-right"></i></a></div><div class="profile-card" id="profile-card" data-github="FearlessYuzuki"><a class="profile-avatar-link" href="https://github.com/FearlessYuzuki" target="_blank" rel="noopener"><img class="profile-avatar" src="https://github.com/FearlessYuzuki.png" alt="sorrow"></a><div class="profile-name">sorrow</div><div class="profile-motto"><i class="fas fa-quote-left"></i> Work quietly, and let success speak.</div><div class="profile-stats"><div class="profile-stat"><span class="profile-stat-num">4</span><span class="profile-stat-label">文章</span></div><div class="profile-stat"><span class="profile-stat-num">16</span><span class="profile-stat-label">标签</span></div><div class="profile-stat"><span class="profile-stat-num">4</span><span class="profile-stat-label">分类</span></div></div><div class="profile-repos"><div class="profile-repos-title"><i class="fas fa-code-branch"></i> 开放项目</div><ul class="profile-repos-list" id="profile-repos-list"><li class="profile-repos-loading">加载中...</li></ul></div><a class="profile-heatmap-link" href="https://github.com/FearlessYuzuki" target="_blank" rel="noopener" title="GitHub 贡献热力图"><div class="profile-heatmap" id="profile-heatmap"></div></a></div><button class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button><div class="search-overlay" id="search-overlay"><div class="search-panel"><div class="search-bar"><div class="window-dots"><span class="dot dot-close"></span><span class="dot dot-min"></span><span class="dot dot-max"></span></div><span class="search-bar-title"><i class="fas fa-search"></i> Tag Search</span><button class="search-close" aria-label="Close" type="button"><i class="fas fa-times"></i></button></div><div class="search-input-wrap"><input id="search-input" type="text" placeholder="Search..." autocomplete="off" spellcheck="false" aria-label="Search..."></div><div class="search-results" id="search-results"></div><div class="search-empty" id="search-empty" data-first="Loading index...">No results found</div></div></div><script src="/js/main.js?v=1788009114844"></script><script>document.addEventListener('DOMContentLoaded', function() {
+  tocbot.init({
+    tocSelector: '#toc-container',
+    contentSelector: '.post-content',
+    headingSelector: 'h1, h2, h3',
+    hasInnerContainers: true,
+    headingsOffset: 80,
+    scrollSmoothOffset: -80
+  });
+});</script></body></html>
