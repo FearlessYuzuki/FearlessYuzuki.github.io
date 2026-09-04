@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;zh-CN&quot;,&quot;default&quot;]"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>UE5 移植 Source Engine 移动系统：Bhop 手感从源码到实现 | Yuzuik's Blog</title><meta charset="UTF-8"><meta name="description" content="Log &amp; Dev"><meta name="keywords" content="C++, Linux, UE, Unity, Hexo, Rust, Java, C#, Algorithms"><meta name="author" content="sorrow"><link rel="icon" type="image/svg+xml" href="/img/avatar.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;700&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="/css/style.css?v=1788541449580"><script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.32.2/tocbot.min.js"></script><script>window.komorebiConfig = {
+  emails: ["fearlessyuzuki@xs.wbu.edu.cn","fearlessyuzuki@foxmail.com"]
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script>MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});</script><meta name="generator" content="Hexo 8.1.2"></head><body class="post"><div class="site-wrapper"><nav class="topbar"><div class="topbar-left"><div class="window-controls"><span class="dot dot-close"></span><span class="dot dot-min"></span><span class="dot dot-max"></span></div><a class="topbar-avatar-link" href="/" aria-label="Home"><img class="topbar-avatar" src="/img/avatar.svg" alt="sorrow"></a><div class="topbar-user"><div class="topbar-username">sorrow</div><div class="topbar-hostname">@Yuzuik's Blog</div></div></div><div class="topbar-spacer"></div><div class="topbar-right"><a class="topbar-home" href="/" aria-label="Home"><i class="fas fa-house"></i></a><div class="topbar-search"><button class="topbar-search-toggle" aria-label="Search"><i class="fas fa-search"></i></button></div><button class="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon theme-icon-dark"></i><i class="fas fa-sun theme-icon-light"></i></button><div class="topbar-lang"><button class="topbar-lang-toggle" type="button" aria-label="Switch Language"><span class="lang-current">EN</span><div class="topbar-lang-dropdown"><a class="topbar-lang-option" href="#" data-lang="en">EN</a><a class="topbar-lang-option" href="#" data-lang="zh-CN">CN</a></div></button></div><div class="topbar-clock"><div class="clock-time"><span id="clock-time">--:--</span><span class="clock-date" id="clock-date">----- //</span></div></div></div></nav><main class="site-content"><article class="post-main"><header class="post-header"><div class="post-header-bar"><div class="window-dots"><span class="dot dot-close"></span><span class="dot dot-min"></span><span class="dot dot-max"></span></div><span class="post-header-path">Published</span></div><h1 class="post-title">UE5 移植 Source Engine 移动系统：Bhop 手感从源码到实现</h1><div class="post-meta"><time class="post-meta-item" datetime="2026-09-05T02:00:00.000Z"><i class="fas fa-calendar-alt"></i>2026-09-05</time><span class="post-meta-item"><i class="fas fa-folder"></i><a class="post-category" href="/categories/Dev/">Dev</a></span><span class="post-meta-item"><i class="fas fa-file-alt"></i>977 words</span><span class="post-meta-item"><i class="fas fa-clock"></i>3 min read</span></div><div class="post-tags"><a class="post-tag" href="/tags/SourceEngine/"><i class="fas fa-tag"></i> SourceEngine</a><a class="post-tag" href="/tags/C/"><i class="fas fa-tag"></i> C++</a><a class="post-tag" href="/tags/UnrealEngine/"><i class="fas fa-tag"></i> UnrealEngine</a><a class="post-tag" href="/tags/Movement/"><i class="fas fa-tag"></i> Movement</a><a class="post-tag" href="/tags/GamePlay/"><i class="fas fa-tag"></i> GamePlay</a></div></header><div class="post-content"><h1 id="UE5-移植-Source-Engine-移动系统：Bhop-手感从源码到实现"><a href="#UE5-移植-Source-Engine-移动系统：Bhop-手感从源码到实现" class="headerlink" title="UE5 移植 Source Engine 移动系统：Bhop 手感从源码到实现"></a>UE5 移植 Source Engine 移动系统：Bhop 手感从源码到实现</h1><blockquote>
+<p>项目仓库：<a target="_blank" rel="noopener" href="https://github.com/FearlessYuzuki/Source-Engine-Movement-To-UnrealEngine">Source-Engine-Movement-To-UnrealEngine</a><br>本文为项目 README 的存档版本，结构与 GitHub 主页一致。</p>
+</blockquote>
+<hr>
+<h2 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h2><p>作为 4000+ 小时 CS 玩家，我希望证明一件事：<strong>Bhop &#x2F; Strafe 的手感背后有一套精确的物理模型，而不是”引擎的玄学”</strong>。</p>
+<p>本项目不满足于”抄公式”，而是沿着 Source 的完整物理管线走了一遍：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">玩家输入 → wishvel / wishdir → accelerate → friction → velocity → 位置</span><br></pre></td></tr></table></figure>
+
+<p>然后在 UE5 的 CMC（CharacterMovementComponent）架构中复刻这套规则。移植原则：</p>
+<blockquote>
+<p><strong>保留 UE 的移动框架（输入管线、碰撞、移动模式），替换其中的”速度更新规则”。</strong></p>
+</blockquote>
+<hr>
+<h2 id="技术原理"><a href="#技术原理" class="headerlink" title="技术原理"></a>技术原理</h2><h3 id="1-输入映射：Source-的-fmove-smove-如何对应-UE-的-Acceleration"><a href="#1-输入映射：Source-的-fmove-smove-如何对应-UE-的-Acceleration" class="headerlink" title="1. 输入映射：Source 的 fmove/smove 如何对应 UE 的 Acceleration"></a>1. 输入映射：Source 的 <code>fmove/smove</code> 如何对应 UE 的 <code>Acceleration</code></h3><p>这是移植中最容易搞错的点，以下结论对照 <code>source-sdk-2013</code> 逐行核对得出：</p>
+<ul>
+<li><code>Acceleration.GetSafeNormal2D()</code> <strong>≡ Source 的 <code>wishdir</code></strong></li>
+<li><code>Acceleration.Size() / MaxAcceleration</code> <strong>≡ Source 的 <code>wishspeed / m_maxspeed</code></strong></li>
+<li>Source 在移动组件内部做 <code>AngleVectors</code>；UE 已把这一步前移到输入层（<code>AddMovementInput</code>），所以 CMC 里看不到 <code>m_flForwardMove</code> 原始标量——<strong>它没有消失，只是被”旋转+合成”成了世界空间向量</strong></li>
+</ul>
+<h3 id="2-为什么必须重写-CalcVelocity（而不是叠加）"><a href="#2-为什么必须重写-CalcVelocity（而不是叠加）" class="headerlink" title="2. 为什么必须重写 CalcVelocity（而不是叠加）"></a>2. 为什么必须重写 <code>CalcVelocity</code>（而不是叠加）</h3><p>UE5 默认地面逻辑会<strong>直接杀死 Bhop 速度</strong>：</p>
+<ol>
+<li>默认有效摩擦 &#x3D; <code>GroundFriction(8.0) × BrakingFrictionFactor(2.0) = 16.0</code></li>
+<li>速度被钳制在 <code>MaxWalkSpeed (600)</code></li>
+<li>方向修正摩擦会把速度向加速度方向做 lerp，改变运动方向</li>
+</ol>
+<p>所以要复刻 Bhop，必须自己实现地面分支（地面不参考 Z 轴速度 + Source 式摩擦先于加速）。</p>
+<h3 id="3-Source-加速模型的还原"><a href="#3-Source-加速模型的还原" class="headerlink" title="3. Source 加速模型的还原"></a>3. Source 加速模型的还原</h3><ul>
+<li><strong>空气加速 <code>AirAccelerate</code></strong>：以 <code>wishdir/wishspeed</code> 为准，按 <code>accelspeed = wishspeed * dt * acceleration</code> 计算增速，并钳制 <code>accelspeed &gt; addspeed → addspeed</code>，实现”空中变向不掉速”</li>
+<li><strong>分步重力</strong>：<code>StartGravity / FinishGravity</code> 各施加一半重力（那个著名的 <code>0.5</code>），整个帧内重力逐渐作用，更符合跳跃手感</li>
+<li><strong>地面摩擦</strong>：按 <code>stop speed / friction</code> 系数衰减，静止相对传送带不减速</li>
+</ul>
+<hr>
+<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> 自定义 <code>USourceCharacterMovementComponent</code>：重写 <code>CalcVelocity</code>，拆分 <code>AirMove</code> &#x2F; <code>WalkMove</code> &#x2F; <code>ApplyFriction</code></li>
+<li><input checked="" disabled="" type="checkbox"> 空气加速（Bhop &#x2F; Air Strafe 核心）与地面摩擦模型</li>
+<li><input checked="" disabled="" type="checkbox"> 空中连跳（落地自动触发 + 输入事件绑定）</li>
+<li><input checked="" disabled="" type="checkbox"> 检查点重生系统：碰撞盒重叠 → 实时更新重生点 → 高度阈值掉落检测 → 复活传送；未触碰检查点时回退 <code>PlayerStart</code> 出生点</li>
+<li><input checked="" disabled="" type="checkbox"> 第一&#x2F;第三人称双相机系统（SpringArm + CameraComponent 即时切换）</li>
+<li><input checked="" disabled="" type="checkbox"> UMG 调试面板（<code>BindWidget</code> + <code>AddDynamic</code> 委托绑定）</li>
+<li><input checked="" disabled="" type="checkbox"> Enhanced Input 体系（PlayerController 侧集中注册 IMC）</li>
+<li><input checked="" disabled="" type="checkbox"> <code>DevMode</code> 统一调试开关：全部调试输出收敛到一个 <code>bDevMode</code>，正常游玩零打扰</li>
+<li><input disabled="" type="checkbox"> KZ 身法测量地图：刻度跑道 + gap 阵列 + 速度显示（进行中）</li>
+<li><input disabled="" type="checkbox"> <code>sv_*</code> 风格参数调优体系（进行中）</li>
+</ul>
+<hr>
+<h2 id="研究与笔记"><a href="#研究与笔记" class="headerlink" title="研究与笔记"></a>研究与笔记</h2><ul>
+<li><strong>博客主页</strong>: <a href="https://fearlessyuzuki.github.io/">https://fearlessyuzuki.github.io</a></li>
+<li><strong>核心研究笔记</strong>：《<a href="../2026/09/05/review-the-code-from-2013/">Review the code from 2013 —— gamemovement.cpp 逐段剖析</a>》，本人撰写，包含 <code>CheckParameters / PlayerMove / FullWalkMove / CategorizePosition</code> 的拆解，重点分析分步重力（<code>StartGravity / FinishGravity</code> 各施加一半的 <code>0.5</code>）、视角同步归一化（<code>YAW ± 360</code> 处理）、ladder 特殊移动模式等机制。</li>
+</ul>
+<hr>
+<h2 id="Citations-参考资源"><a href="#Citations-参考资源" class="headerlink" title="Citations(参考资源)"></a>Citations(参考资源)</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/game/shared/gamemovement.cpp">Valve Source SDK 2013 — gamemovement.cpp</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1BsNheREEB/">Bilibili Tutorial (Chinese)</a><ul>
+<li><a target="_blank" rel="noopener" href="https://youtu.be/gRqoXy-0d84">YouTube (English Original)</a></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://www.reddit.com/r/programming/comments/kui5b8/the_code_behind_quakes_movement_tricks_explained/">Reddit — The Code Behind Quake’s Movement Tricks Explained</a></li>
+<li><a target="_blank" rel="noopener" href="https://steamcommunity.com/sharedfiles/filedetails/?id=184184420">Steam Workshop — Bhop Guide</a></li>
+</ul>
+<hr>
+<h2 id="开发学习记录"><a href="#开发学习记录" class="headerlink" title="开发学习记录"></a>开发学习记录</h2><p>一些过程中的经验与踩坑：</p>
+<ul>
+<li><strong>Live Coding 的坑</strong>：Live Coding 热更新不会覆盖所有改动，涉及头文件&#x2F;新增类时必须完整重编译，否则会出现”代码改了但行为不变”</li>
+<li><strong>蓝图协作</strong>：C++ 类与蓝图紧密耦合，GameMode &#x2F; Controller &#x2F; 输入映射等必须在蓝图&#x2F;Project Settings 侧配对配置</li>
+<li><strong>UE 官方文档</strong>：难度不在 C++ 而在于需要先理解引擎概念（pawn&#x2F;controller&#x2F;component 生命周期），否则看起来非常吃力</li>
+<li><strong>调试规范</strong>：所有调试输出（屏幕消息、DrawDebugLine）收敛到 <code>DevMode</code> 统一开关，避免每帧刷屏</li>
+</ul>
+</div><div class="post-copyright"><p>All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stated additionally.</p></div><nav class="post-nav"><div class="post-nav-item"><span class="post-nav-label">Previous</span><a class="post-nav-title" href="/2026/09/05/review-the-code-from-2013/">Review the code from 2013：剖析 Source Engine 玩家移动核心（连载·上）</a></div><div class="post-nav-item post-nav-next"><span class="post-nav-label">Next</span><a class="post-nav-title" href="/2026/08/29/moondrop-rays-eq-notes/">水月雨 RAYS 光束：我的 EQ 调音笔记</a></div></nav></article><aside class="post-sidebar"><div class="toc-header"><i class="fas fa-list"></i> Contents</div><div id="toc-container"></div></aside></main><footer class="site-footer"><div class="footer-inner"><div class="social-links"><a class="social-link" href="mailto:fearlessyuzuki@xs.wbu.edu.cn" title="E-mail" rel="noopener"><i class="fas fa-envelope"></i></a><a class="social-link" href="https://github.com/FearlessYuzuki" title="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a><a class="social-link" href="https://space.bilibili.com/292010680" title="Bilibili" target="_blank" rel="noopener"><i class="fab fa-bilibili"></i></a></div><div class="footer-meta"><span class="copyright">&copy; 2019&ndash;2026 sorrow</span><span class="separator">&middot;</span><span>Powered by<a href="https://hexo.io" target="_blank">Hexo</a> &amp; <span>Tokyo Night</span></span></div><div class="visit-count"><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span class="separator">|</span><span><i class="fas fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div></footer></div><div class="music-player" id="music-player" data-song-id="1864450966" data-song-url="https://music.163.com/#/song?id=1864450966"><button class="music-player-collapse" id="music-player-collapse" type="button" aria-label="收起/展开播放器"><i class="fas fa-chevron-left music-player-collapse-close"></i><i class="fas fa-music music-player-collapse-open"></i></button><div class="music-player-disc"><img class="music-player-cover" src="https://p1.music.126.net/-49neUTXVPH9fQd2SxuLYg==/109951166219826728.jpg" alt="Inner Light"><div class="music-player-disc-hole"></div></div><div class="music-player-track"><div class="music-player-name" title="Inner Light">Inner Light</div><div class="music-player-artist">Elderbrook / Bob Moses</div></div><div class="music-player-controls"><button class="music-player-play" id="music-player-play" type="button" aria-label="播放/暂停"><i class="fas fa-play" id="music-player-play-icon"></i></button><a class="music-player-open" href="https://music.163.com/#/song?id=1864450966" target="_blank" rel="noopener" aria-label="打开网易云" title="在网易云打开"><i class="fas fa-external-link-alt"></i></a></div><div class="music-player-frame" id="music-player-frame"></div><a class="music-player-page" href="/music/">daydream · 歌单 <i class="fas fa-chevron-right"></i></a></div><div class="profile-card" id="profile-card" data-github="FearlessYuzuki"><a class="profile-avatar-link" href="https://github.com/FearlessYuzuki" target="_blank" rel="noopener"><img class="profile-avatar" src="https://github.com/FearlessYuzuki.png" alt="sorrow"></a><div class="profile-name">sorrow</div><div class="profile-motto"><i class="fas fa-quote-left"></i> Work quietly, and let success speak.</div><div class="profile-stats"><div class="profile-stat"><span class="profile-stat-num">6</span><span class="profile-stat-label">文章</span></div><div class="profile-stat"><span class="profile-stat-num">23</span><span class="profile-stat-label">标签</span></div><div class="profile-stat"><span class="profile-stat-num">4</span><span class="profile-stat-label">分类</span></div></div><div class="profile-repos"><div class="profile-repos-title"><i class="fas fa-code-branch"></i> 开放项目</div><ul class="profile-repos-list" id="profile-repos-list"><li class="profile-repos-loading">加载中...</li></ul></div><a class="profile-heatmap-link" href="https://github.com/FearlessYuzuki" target="_blank" rel="noopener" title="GitHub 贡献热力图"><div class="profile-heatmap" id="profile-heatmap"></div></a></div><button class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button><div class="search-overlay" id="search-overlay"><div class="search-panel"><div class="search-bar"><div class="window-dots"><span class="dot dot-close"></span><span class="dot dot-min"></span><span class="dot dot-max"></span></div><span class="search-bar-title"><i class="fas fa-search"></i> Tag Search</span><button class="search-close" aria-label="Close" type="button"><i class="fas fa-times"></i></button></div><div class="search-input-wrap"><input id="search-input" type="text" placeholder="Search..." autocomplete="off" spellcheck="false" aria-label="Search..."></div><div class="search-results" id="search-results"></div><div class="search-empty" id="search-empty" data-first="Loading index...">No results found</div></div></div><script src="/js/main.js?v=1788541449581"></script><script>document.addEventListener('DOMContentLoaded', function() {
+  tocbot.init({
+    tocSelector: '#toc-container',
+    contentSelector: '.post-content',
+    headingSelector: 'h1, h2, h3',
+    hasInnerContainers: true,
+    headingsOffset: 80,
+    scrollSmoothOffset: -80
+  });
+});</script></body></html>
