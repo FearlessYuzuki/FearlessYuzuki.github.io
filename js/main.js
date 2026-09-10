@@ -92,6 +92,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
     langCurrent.textContent = currentLang === 'zh-CN' ? 'CN' : 'EN';
 
+    // Map the current path onto the same page in the target language.
+    function langPath(path, targetLang) {
+      var isZh = path.indexOf('/zh-CN') === 0;
+      if (targetLang === 'zh-CN') {
+        return isZh ? path : '/zh-CN' + (path === '/' ? '/' : path);
+      }
+      return isZh ? path.replace(/^\/zh-CN/, '') || '/' : path;
+    }
+
+    // Remember the language chosen with the switcher and re-apply it when
+    // the visitor lands on a page in the other language.
+    var preferredLang = null;
+    try { preferredLang = localStorage.getItem('preferred-lang'); } catch (err) { /* ignore */ }
+    if (preferredLang && preferredLang !== currentLang) {
+      var preferredPath = langPath(currentPath, preferredLang);
+      if (preferredPath !== currentPath) {
+        fetch(preferredPath, { method: 'HEAD' }).then(function (res) {
+          window.location.replace(res.ok ? preferredPath : (preferredLang === 'zh-CN' ? '/zh-CN/' : '/'));
+        }).catch(function () {
+          window.location.replace(preferredLang === 'zh-CN' ? '/zh-CN/' : '/');
+        });
+      }
+    }
+
     // Click toggle (hover only works on desktop; mobile has no hover)
     var langWrap = document.querySelector('.topbar-lang');
     var langToggle = document.querySelector('.topbar-lang-toggle');
@@ -115,13 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Normalize target path: only add /zh-CN when switching INTO
         // Chinese, only strip it when switching OUT.
-        var isZh = path.indexOf('/zh-CN') === 0;
-        var targetPath;
-        if (targetLang === 'zh-CN') {
-          targetPath = isZh ? path : '/zh-CN' + (path === '/' ? '/' : path);
-        } else {
-          targetPath = isZh ? path.replace(/^\/zh-CN/, '') || '/' : path;
-        }
+        var targetPath = langPath(path, targetLang);
 
         // If we're already on the target language, just reload
         if (targetPath === path) {
@@ -315,13 +333,23 @@ document.addEventListener('DOMContentLoaded', function () {
     var lower = text.toLowerCase();
     var out = '';
     var last = 0;
-    tokens.forEach(function (t) {
-      var idx = lower.indexOf(t, last);
-      if (idx < 0) return;
-      out += escapeHtml(text.slice(last, idx));
-      out += '<mark>' + escapeHtml(text.slice(idx, idx + t.length)) + '</mark>';
-      last = idx + t.length;
-    });
+    // Highlight whichever token appears first from the current position,
+    // so tokens given in a different order than the text still all match.
+    while (last < text.length) {
+      var bestIdx = -1;
+      var bestLen = 0;
+      tokens.forEach(function (t) {
+        var idx = lower.indexOf(t, last);
+        if (idx >= 0 && (bestIdx < 0 || idx < bestIdx)) {
+          bestIdx = idx;
+          bestLen = t.length;
+        }
+      });
+      if (bestIdx < 0) break;
+      out += escapeHtml(text.slice(last, bestIdx));
+      out += '<mark>' + escapeHtml(text.slice(bestIdx, bestIdx + bestLen)) + '</mark>';
+      last = bestIdx + bestLen;
+    }
     out += escapeHtml(text.slice(last));
     return out;
   }
@@ -355,14 +383,15 @@ document.addEventListener('DOMContentLoaded', function () {
         var score = 0;
         var matched = true;
         tokens.forEach(function (t) {
-          if (title.indexOf(t) >= 0) score += 100;
-          if (tags.indexOf(t) >= 0) score += 30;
-          if (cats.indexOf(t) >= 0) score += 20;
-          if (content.indexOf(t) >= 0) {
-            score += 5;
-          } else {
-            matched = false;
-          }
+          // A token counts as matched if it appears anywhere — title, tags
+          // and categories score higher than a plain body hit, but must not
+          // require the body to contain it too.
+          var found = false;
+          if (title.indexOf(t) >= 0) { score += 100; found = true; }
+          if (tags.indexOf(t) >= 0) { score += 30; found = true; }
+          if (cats.indexOf(t) >= 0) { score += 20; found = true; }
+          if (content.indexOf(t) >= 0) { score += 5; found = true; }
+          if (!found) matched = false;
         });
         if (matched && score > 0) hits.push({ post: p, score: score, content: content });
       });
