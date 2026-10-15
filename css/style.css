@@ -2093,6 +2093,16 @@ body.page .site-content {
   overflow: hidden;
 }
 
+/* Hexo renders highlighted blocks as <figure class="highlight"> with a
+   line-number <table> inside. That table is as wide as the longest code
+   line, and because a table cannot be narrower than its min-content the
+   overflow used to escape the article and add a page-wide horizontal
+   scrollbar on phones. The figure gives the block its own scroller. */
+.post-content figure.highlight {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
 .post-content pre code {
   background: none;
   color: var(--text);
@@ -2488,6 +2498,13 @@ body.page .site-content {
 
   body.post .site-content {
     flex-direction: column;
+  }
+
+  /* The column direction makes .post-main a flex item, so without an
+     explicit width it sizes to max-content and wide <pre> blocks push
+     the whole page into horizontal scroll on phones. */
+  body.post .post-main {
+    width: 100%;
   }
 
   body.post .post-sidebar {
@@ -3558,8 +3575,41 @@ body.page .site-content {
   filter: invert(0.92) hue-rotate(180deg);
 }
 
-@media (max-width: 1024px) {
-  .profile-card {
+/* ========================================
+   Floating panel gutters
+   ----------------------------------------
+   The music player (fixed, left) and the profile card (fixed, right)
+   float on top of the page, so on narrow viewports they used to sit on
+   the article text and on the TOC. The centred column therefore only
+   claims the space left over after reserving both gutters:
+
+     176px player + 12px edge + 24px gap = 212px
+     210px card   + 12px edge + 24px gap = 246px
+     +~20px slack for the classic scrollbar (100vw includes it)
+                                        = 480px
+
+   With that reservation the free margin is always >= 240px, so neither
+   panel can ever cover content again.
+   ======================================== */
+@media (min-width: 1400px) {
+  .site-content,
+  body.post .site-content {
+    max-width: min(var(--content-width-lg), calc(100vw - 480px));
+  }
+}
+
+/* Under 1400px there is no longer room for a comfortable article column
+   beside the panels, so they step aside instead of covering the text.
+   The music player keeps its compact pill layout on phones (<=768px,
+   see the media query above); the profile card is decorative. */
+@media (min-width: 769px) and (max-width: 1399px) {
+  body .music-player {
+    display: none;
+  }
+}
+
+@media (max-width: 1399px) {
+  body .profile-card {
     display: none;
   }
 }
