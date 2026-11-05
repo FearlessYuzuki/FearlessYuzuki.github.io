@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Markdown 语法速查手册</title>
+    <url>/2026/08/23/markdown-syntax/</url>
+    <content><![CDATA[<p>Markdown 是一种轻量级标记语言，用纯文本格式编写文档，再转换为结构化的 HTML。本文覆盖日常写作中最常用的语法。</p>
+<blockquote>
+<p><strong>AI 生成声明</strong>：本文由 AI 撰写生成，使用 Opencode CLI 创作，主要模型为 DeepSeek V4 Flash（<code>deepseek/deepseek-v4-flash</code>）。</p>
+</blockquote>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>在行首加 <code>#</code>，一级标题一个 <code>#</code>，以此类推，最多六级。</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line"><span class="section">#### 四级标题</span></span><br><span class="line"><span class="section">##### 五级标题</span></span><br><span class="line"><span class="section">###### 六级标题</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="段落与换行"><a href="#段落与换行" class="headerlink" title="段落与换行"></a>段落与换行</h2><ul>
+<li>段落之间用<strong>空行</strong>分隔。</li>
+<li>行末加<strong>两个空格</strong>再回车，可以强制换行。</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">这是第一段。</span><br><span class="line"></span><br><span class="line">这是第二段，上一行末尾加了两个空格  </span><br><span class="line">因此可以换行显示。</span><br></pre></td></tr></table></figure>
+
+<h2 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*斜体*</span> 或 <span class="emphasis">_斜体_</span></span><br><span class="line"><span class="strong">**粗体**</span> 或 <span class="strong">__粗体__</span></span><br><span class="line"><span class="strong">**<span class="emphasis">*粗斜体*</span>**</span></span><br><span class="line">~~删除线~~</span><br></pre></td></tr></table></figure>
+
+<p><em>斜体</em>、<strong>粗体</strong>、<em><strong>粗斜体</strong></em>、<del>删除线</del></p>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> 项目一</span><br><span class="line"><span class="bullet">-</span> 项目二</span><br><span class="line"><span class="bullet">  -</span> 嵌套项目</span><br></pre></td></tr></table></figure>
+
+<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 第一步</span><br><span class="line"><span class="bullet">2.</span> 第二步</span><br><span class="line"><span class="bullet">3.</span> 第三步</span><br></pre></td></tr></table></figure>
+
+<h3 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> [x] 已完成</span><br><span class="line"><span class="bullet">-</span> [ ] 未完成</span><br></pre></td></tr></table></figure>
+
+<h2 id="链接与图片"><a href="#链接与图片" class="headerlink" title="链接与图片"></a>链接与图片</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">文字链接</span>](<span class="link">https://example.com</span>)</span><br><span class="line">[<span class="string">带标题的链接</span>](<span class="link">https://example.com &quot;悬停提示&quot;</span>)</span><br><span class="line">![<span class="string">图片描述</span>](<span class="link">https://example.com/image.png</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="quote">&gt; 引用内容</span></span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt; 多段引用用空引用行分隔</span></span><br><span class="line"><span class="quote">&gt; 也可以 <span class="strong">**嵌套引用**</span></span></span><br><span class="line">&gt;&gt; 嵌套一层</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>引用内容</p>
+<p>多段引用用空引用行分隔<br>也可以 <strong>嵌套引用</strong></p>
+</blockquote>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="行内代码"><a href="#行内代码" class="headerlink" title="行内代码"></a>行内代码</h3><p>用反引号包裹：<code>npm install</code></p>
+<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>用三个反引号包裹，并注明语言以启用高亮：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">```javascript</span></span><br><span class="line"><span class="code">const greeting = (name) =&gt; `Hello, $&#123;name&#125;!`;</span></span><br><span class="line"><span class="code">console.log(greeting(&#x27;World&#x27;));</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">## 表格</span><br><span class="line"></span><br><span class="line">```markdown</span><br><span class="line">| 语法 | 说明 | 示例 |</span><br><span class="line">| :--- | :---: | ---: |</span><br><span class="line">| 左对齐 | 居中对齐 | 右对齐 |</span><br><span class="line">| `**粗体**` | 强调 | **粗体** |</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">语法</th>
+<th align="center">说明</th>
+<th align="right">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">左对齐</td>
+<td align="center">居中对齐</td>
+<td align="right">右对齐</td>
+</tr>
+<tr>
+<td align="left"><code>**粗体**</code></td>
+<td align="center">强调</td>
+<td align="right"><strong>粗体</strong></td>
+</tr>
+</tbody></table>
+<h2 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h2><p>三个以上的 <code>-</code>、<code>*</code> 或 <code>_</code>：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<h2 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h2><p>在特殊字符前加反斜杠即可输出字面量：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">\* 星号 \_ 下划线 \` 反引号 \# 井号</span><br></pre></td></tr></table></figure>
+
+<h2 id="高级技巧"><a href="#高级技巧" class="headerlink" title="高级技巧"></a>高级技巧</h2><h3 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">这是一段带脚注的文字[^1]。</span><br><span class="line"></span><br><span class="line">[<span class="symbol">^1</span>]: <span class="link">这是脚注的内容。</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="锚点跳转"><a href="#锚点跳转" class="headerlink" title="锚点跳转"></a>锚点跳转</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">跳到标题</span>](<span class="link">#标题</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="HTML-嵌入"><a href="#HTML-嵌入" class="headerlink" title="HTML 嵌入"></a>HTML 嵌入</h3><p>Markdown 完全兼容内嵌 HTML：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">kbd</span>&gt;</span>Ctrl<span class="tag">&lt;/<span class="name">kbd</span>&gt;</span> + <span class="tag">&lt;<span class="name">kbd</span>&gt;</span>C<span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><kbd>Ctrl</kbd> + <kbd>C</kbd></p>
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>在 Hexo 中可在文章 front-matter 中启用目录：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">toc:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>用<strong>空行</strong>分隔段落</li>
+<li>用<strong>空格</strong>控制缩进与嵌套</li>
+<li>代码块记得标注<strong>语言</strong>以获得高亮</li>
+<li>表格对齐用冒号：<code>:---</code> 左对齐、<code>:---:</code> 居中、<code>---:</code> 右对齐</li>
+</ul>
+<p>掌握以上语法，即可写出结构清晰、排版美观的 Markdown 文档。</p>
+]]></content>
+      <categories>
+        <category>Tutorial</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+        <tag>tutorial</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Midnight Reflections on Digital Dreams</title>
+    <url>/2026/07/23/midnight-reflections/</url>
+    <content><![CDATA[<p>The screen glows softly in the darkness, a portal to somewhere else entirely. I’ve been staring at this cursor for what feels like hours, watching it blink patiently as if waiting for me to remember how to speak.</p>
+<h2 id="The-Weight-of-Light"><a href="#The-Weight-of-Light" class="headerlink" title="The Weight of Light"></a>The Weight of Light</h2><p>There’s something peculiar about the way pixels arrange themselves into meaning. Each one, a tiny square of colored light, contributes to something larger than itself. Alone, it means nothing. Together, they tell stories.</p>
+<blockquote>
+<p>“We are all just walking each other home.” — Ram Dass</p>
+</blockquote>
+<p>I think about this often in the context of code. Every function, every variable, every carefully placed semicolon — they walk each other toward something. Sometimes toward utility. Sometimes toward beauty. Sometimes toward meaning itself.</p>
+<h2 id="Between-the-Lines"><a href="#Between-the-Lines" class="headerlink" title="Between the Lines"></a>Between the Lines</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dreams = [</span><br><span class="line">  <span class="string">&#x27;build something that matters&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;write code that sings&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;create spaces for quiet minds&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;find the poetry in logic&#x27;</span></span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">pursue</span>(<span class="params">dream</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> effort = dream.<span class="title function_">split</span>(<span class="string">&#x27; &#x27;</span>).<span class="property">length</span>;</span><br><span class="line">    <span class="keyword">const</span> time = <span class="title class_">Infinity</span>;</span><br><span class="line">    <span class="title function_">resolve</span>(&#123; dream, effort, time &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>The code above doesn’t actually <em>do</em> anything functional. But perhaps that’s the point. Not everything needs to be a tool. Some things can simply be.</p>
+<h2 id="On-Typography-and-Silence"><a href="#On-Typography-and-Silence" class="headerlink" title="On Typography and Silence"></a>On Typography and Silence</h2><p>I chose Cascadia Mono for this blog because monospace fonts carry a certain honesty. Each character occupies the same space — no letter is more important than another. In a world obsessed with hierarchy, there’s something radical about equality of space.</p>
+<p>The margins of a page are just as important as the text within them. Silence between notes creates the music. White space in design creates the meaning.</p>
+<h2 id="A-List-of-Things-I’ve-Learned"><a href="#A-List-of-Things-I’ve-Learned" class="headerlink" title="A List of Things I’ve Learned"></a>A List of Things I’ve Learned</h2><ol>
+<li><strong>The best code reads like prose</strong> — not because it’s verbose, but because it’s clear</li>
+<li><strong>Comments should explain <em>why</em>, not <em>what</em></strong> — the code itself should tell you what</li>
+<li><strong>Refactoring is a form of editing</strong> — both writers and programmers refine their work</li>
+<li><strong>The delete key is the most creative key</strong> — subtraction often creates more than addition</li>
+</ol>
+<h2 id="Late-Night-Confessions"><a href="#Late-Night-Confessions" class="headerlink" title="Late Night Confessions"></a>Late Night Confessions</h2><p>Sometimes I open my editor and just… sit there. The blinking cursor becomes a meditation. The empty file, a canvas. The pressure to create dissolves into the simple act of being present with the machine.</p>
+<p>There’s a Japanese concept called <strong>Ma</strong> (間) — the pause, the gap, the space between things. It’s the silence between notes that makes music. It’s the emptiness in a room that makes it livable. </p>
+<p>Perhaps the best code has Ma. Perhaps the best designs have Ma. Perhaps the best lives have Ma.</p>
+<h2 id="On-Building-This-Blog"><a href="#On-Building-This-Blog" class="headerlink" title="On Building This Blog"></a>On Building This Blog</h2><p>I built this theme from scratch. Not because I couldn’t find one that worked, but because I wanted to understand every pixel. Every border-radius. Every transition timing function.</p>
+<p>The meteors you see falling in the background? They’re not just decoration. They’re a reminder that everything is in motion. That even in the quietest moments, the universe is doing something.</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* This is what falling looks like in code */</span></span><br><span class="line"><span class="keyword">@keyframes</span> meteor-fall &#123;</span><br><span class="line">  <span class="number">0%</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(<span class="number">0</span>, <span class="number">0</span>) <span class="built_in">rotate</span>(<span class="number">135deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="number">5%</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="number">70%</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0.8</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="number">100%</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-<span class="number">300px</span>, <span class="number">600px</span>) <span class="built_in">rotate</span>(<span class="number">135deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Tomorrow"><a href="#Tomorrow" class="headerlink" title="Tomorrow"></a>Tomorrow</h2><p>Tomorrow I’ll write something practical. Something with endpoints and databases and deployment pipelines. But tonight, I wanted to write something true.</p>
+<p>The cursor keeps blinking. I keep thinking. The meteors keep falling.</p>
+<p>And that’s enough.</p>
+<hr>
+<p><em>Written at 2:30 AM, while the rest of the world slept and the code editors glowed.</em></p>
+]]></content>
+      <categories>
+        <category>Essay</category>
+      </categories>
+      <tags>
+        <tag>thoughts</tag>
+        <tag>digital</tag>
+        <tag>night</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Review the code from 2013：剖析 Source Engine 玩家移动核心（连载·上）</title>
+    <url>/2026/09/05/review-the-code-from-2013/</url>
+    <content><![CDATA[<blockquote>
+<p>本系列为个人学习笔记，逐段拆解 Source SDK 2013 的移动逻辑。<strong>只完成了其中一部分，后续章节待续。</strong><br>相关项目：<a href="https://github.com/FearlessYuzuki/Source-Engine-Movement-To-UnrealEngine">Source-Engine-Movement-To-UnrealEngine</a></p>
+</blockquote>
+<hr>
+<p><code>PlayerMove()</code> -&gt; <code>CheckParameters()</code></p>
+<h2 id="剖析-CheckParameters"><a href="#剖析-CheckParameters" class="headerlink" title="剖析 CheckParameters()"></a>剖析 <code>CheckParameters()</code></h2><p>判断条件：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">player-&gt;<span class="built_in">GetMoveType</span>() != MOVETYPE_ISOMETRIC &amp;&amp;</span><br><span class="line">player-&gt;<span class="built_in">GetMoveType</span>() != MOVETYPE_NOCLIP &amp;&amp;</span><br><span class="line">player-&gt;<span class="built_in">GetMoveType</span>() != MOVETYPE_OBSERVER</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">float</span> spd; <span class="comment">// Combination of ForwardMove and sizemove and upmove ::means 3D vector</span></span><br><span class="line"><span class="type">float</span> maxspeed;</span><br><span class="line">maxspeed = mv-&gt;m_flClientMaxSpeed;</span><br><span class="line"><span class="comment">// maxspeed is client max speed;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ( maxspeed != <span class="number">0.0</span> )</span><br><span class="line">&#123;</span><br><span class="line">    mv-&gt;m_flMaxSpeed = <span class="built_in">MIN</span>( maxspeed, mv-&gt;m_flMaxSpeed );</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// -&gt;Here is defined speed is always the smaller one because of NetworkSync also speed limited</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来就是速度系数来降速了，就是针对不同地面有不同的速度系数（同时如果存在限制的话）也会应用限制速度系数：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// If we have a constraint, slow down because of that too.</span></span><br><span class="line"><span class="type">float</span> flConstraintSpeedFactor = <span class="built_in">ComputeConstraintSpeedFactor</span>();</span><br><span class="line"><span class="keyword">if</span> (flConstraintSpeedFactor &lt; flSpeedFactor)</span><br><span class="line">    flSpeedFactor = flConstraintSpeedFactor;</span><br><span class="line"></span><br><span class="line">mv-&gt;m_flMaxSpeed *= flSpeedFactor;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> ( player-&gt;<span class="built_in">GetFlags</span>() &amp; FL_FROZEN ||</span><br><span class="line">     player-&gt;<span class="built_in">GetFlags</span>() &amp; FL_ONTRAIN ||</span><br><span class="line">     <span class="built_in">IsDead</span>() )</span><br><span class="line">&#123;</span><br><span class="line">    mv-&gt;m_flForwardMove = <span class="number">0</span>;</span><br><span class="line">    mv-&gt;m_flSideMove    = <span class="number">0</span>;</span><br><span class="line">    mv-&gt;m_flUpMove      = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里是判断角色是否不应该被操控。Source 是按 tick 来进行的，而 <code>CheckParameters()</code> 在每一个 tick 中都会发生——比如 64tick 服务器，这个检测每秒正好 64 次；只要有一次角色处于死亡状态，指令输入就会被清零。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Take angles from command.</span></span><br><span class="line"><span class="keyword">if</span> ( !<span class="built_in">IsDead</span>() )</span><br><span class="line">&#123;</span><br><span class="line">    v_angle = mv-&gt;m_vecAngles;</span><br><span class="line">    v_angle = v_angle + player-&gt;m_Local.m_vecPunchAngle;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Now adjust roll angle</span></span><br><span class="line">    <span class="keyword">if</span> ( player-&gt;<span class="built_in">GetMoveType</span>() != MOVETYPE_ISOMETRIC  &amp;&amp;</span><br><span class="line">         player-&gt;<span class="built_in">GetMoveType</span>() != MOVETYPE_NOCLIP )</span><br><span class="line">    &#123;</span><br><span class="line">        mv-&gt;m_vecAngles[ROLL]  = <span class="built_in">CalcRoll</span>( v_angle, mv-&gt;m_vecVelocity, sv_rollangle.<span class="built_in">GetFloat</span>(), sv_rollspeed.<span class="built_in">GetFloat</span>() );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        mv-&gt;m_vecAngles[ROLL] = <span class="number">0.0</span>; <span class="comment">// v_angle[ ROLL ];</span></span><br><span class="line">    &#125;</span><br><span class="line">    mv-&gt;m_vecAngles[PITCH] = v_angle[PITCH];</span><br><span class="line">    mv-&gt;m_vecAngles[YAW]   = v_angle[YAW];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    mv-&gt;m_vecAngles = mv-&gt;m_vecOldAngles;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Set dead player view_offset</span></span><br><span class="line"><span class="keyword">if</span> ( <span class="built_in">IsDead</span>() )</span><br><span class="line">&#123;</span><br><span class="line">    player-&gt;<span class="built_in">SetViewOffset</span>( <span class="built_in">VEC_DEAD_VIEWHEIGHT_SCALED</span>( player ) );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Adjust client view angles to match values used on server.</span></span><br><span class="line"><span class="keyword">if</span> ( mv-&gt;m_vecAngles[YAW] &gt; <span class="number">180.0f</span> )</span><br><span class="line">&#123;</span><br><span class="line">    mv-&gt;m_vecAngles[YAW] -= <span class="number">360.0f</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这一大段是给后坐力控制来回复视角的，不然视角就会一直上跳而不回复。（这里我也很震惊——毕竟 CS 也有 3000+ 小时，一直认为 64tick 压枪和 128tick 压枪没区别，而且普遍认为 128 更”好压枪”。其实确实是这样：128tick 下视角回复更平滑，体感就是更流畅。但这一套不适用于 CS2 的 Subtick 机制，目前我还没完全搞明白 Subtick 具体是怎样的。）</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Adjust client view angles to match values used on server.</span></span><br><span class="line"><span class="keyword">if</span> ( mv-&gt;m_vecAngles[YAW] &gt; <span class="number">180.0f</span> )</span><br><span class="line">&#123;</span><br><span class="line">    mv-&gt;m_vecAngles[YAW] -= <span class="number">360.0f</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里是服务器客户端同步：服务器接收的角度只处于 <code>[-180,180]</code> 区间内，但客户端的实时视角转动其实能够超过这个范围（比如 270 度很容易触发），一旦大于 180.f 就直接减 360 度，自然就回到了 <code>[-180,180]</code>（该区间长度正好是 360）。本质是<strong>视角归一化</strong>。</p>
+<p>其实这样看起来，起源引擎的预测机制还是很复杂的，但也从侧面印证了一点：当时比较出名的外挂都会带回溯（回溯预测）功能，本质就是靠这个预测机制做到的。视角上游戏只会有一个模型，但身位是可以在预测前和补后的，因此存在这个功能。我觉得任何 FPS 游戏只要包含预测机制，就可以通过预测机制来实现一些功能。</p>
+<h2 id="剖析-PlayerMove"><a href="#剖析-PlayerMove" class="headerlink" title="剖析 PlayerMove()"></a>剖析 <code>PlayerMove()</code></h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// clear output applied velocity</span></span><br><span class="line">mv-&gt;m_outWishVel.<span class="built_in">Init</span>();</span><br><span class="line">mv-&gt;m_outJumpVel.<span class="built_in">Init</span>();</span><br></pre></td></tr></table></figure>
+
+<p>在玩家移动被调用时，这里初始化这两个速度。主要有两个目的：一是把这个速度传递出去（out***），二是把它归零——mv 这个指针在 gamemovement 中被使用的次数超出想象的多，这么做是为了避免数据污染（脏数据）。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">MoveHelper</span>( )-&gt;<span class="built_in">ResetTouchList</span>();  <span class="comment">// Assume we don&#x27;t touch anything</span></span><br><span class="line"><span class="built_in">ReduceTimers</span>();</span><br><span class="line"></span><br><span class="line"><span class="built_in">AngleVectors</span> (mv-&gt;m_vecViewAngles, &amp;m_vecForward, &amp;m_vecRight, &amp;m_vecUp );  <span class="comment">// Determine movement angles</span></span><br></pre></td></tr></table></figure>
+
+<p>每帧调用移动时，假设没有接触任何东西，清空 timer（Timer 与角色移动的状态计时器相关内容），然后获取移动角度。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> ( player-&gt;<span class="built_in">GetMoveType</span>() != MOVETYPE_NOCLIP &amp;&amp;</span><br><span class="line">     player-&gt;<span class="built_in">GetMoveType</span>() != MOVETYPE_NONE &amp;&amp;</span><br><span class="line">     player-&gt;<span class="built_in">GetMoveType</span>() != MOVETYPE_ISOMETRIC &amp;&amp;</span><br><span class="line">     player-&gt;<span class="built_in">GetMoveType</span>() != MOVETYPE_OBSERVER &amp;&amp;</span><br><span class="line">     !player-&gt;pl.deadflag )</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> ( <span class="built_in">CheckInterval</span>( STUCK ) )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> ( <span class="built_in">CheckStuck</span>() )</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// Can&#x27;t move, we&#x27;re stuck</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>字面意思：我们卡住没有，玩家卡住就不走这里了。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Don&#x27;t run ladder code if dead on on a train</span></span><br><span class="line"><span class="keyword">if</span> ( !player-&gt;pl.deadflag &amp;&amp; !(player-&gt;<span class="built_in">GetFlags</span>() &amp; FL_ONTRAIN) )</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// If was not on a ladder now, but was on one before,</span></span><br><span class="line">    <span class="comment">//  get off of the ladder</span></span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> this causes lots of weirdness.</span></span><br><span class="line">    <span class="comment">//bool bCheckLadder = CheckInterval( LADDER );</span></span><br><span class="line">    <span class="comment">//if ( bCheckLadder || player-&gt;GetMoveType() == MOVETYPE_LADDER )</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> ( !<span class="built_in">LadderMove</span>() &amp;&amp;</span><br><span class="line">            ( player-&gt;<span class="built_in">GetMoveType</span>() == MOVETYPE_LADDER ) )</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// Clear ladder stuff unless player is dead or riding a train</span></span><br><span class="line">            player-&gt;<span class="built_in">SetMoveType</span>( MOVETYPE_WALK );</span><br><span class="line">            player-&gt;<span class="built_in">SetMoveCollide</span>( MOVECOLLIDE_DEFAULT );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里是关于梯子的问题。从游戏里就看得出来，梯子会有一些奇奇怪怪的 bug，比如 KZ 图里很经典的 ladder jump——其实是因为起源对梯子这个特殊物件有些头痛，所以单独把梯子拎出来处理。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Handle movement modes.</span></span><br><span class="line"><span class="keyword">switch</span> (player-&gt;<span class="built_in">GetMoveType</span>())</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">case</span> MOVETYPE_NONE:</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> MOVETYPE_NOCLIP:</span><br><span class="line">        <span class="built_in">FullNoClipMove</span>( sv_noclipspeed.<span class="built_in">GetFloat</span>(), sv_noclipaccelerate.<span class="built_in">GetFloat</span>() );</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> MOVETYPE_FLY:</span><br><span class="line">    <span class="keyword">case</span> MOVETYPE_FLYGRAVITY:</span><br><span class="line">        <span class="built_in">FullTossMove</span>();</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> MOVETYPE_LADDER:</span><br><span class="line">        <span class="built_in">FullLadderMove</span>();</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> MOVETYPE_WALK:</span><br><span class="line">        <span class="built_in">FullWalkMove</span>();</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> MOVETYPE_ISOMETRIC:</span><br><span class="line">        <span class="comment">//IsometricMove();</span></span><br><span class="line">        <span class="comment">// Could also try:  FullTossMove();</span></span><br><span class="line">        <span class="built_in">FullWalkMove</span>();</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> MOVETYPE_OBSERVER:</span><br><span class="line">        <span class="built_in">FullObserverMove</span>(); <span class="comment">// clips against world&amp;players</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="built_in">DevMsg</span>( <span class="number">1</span>, <span class="string">&quot;Bogus pmove player movetype %i on (%i) 0=cl 1=sv\n&quot;</span>, player-&gt;<span class="built_in">GetMoveType</span>(), player-&gt;<span class="built_in">IsServer</span>());</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里是 <code>PlayerMove()</code> 中我认为很重要的部分：通过 player 指针得到玩家当前状态，再来分配动作。接下来我们顺藤摸瓜去看 <code>FullWalkMove()</code>。</p>
+<h2 id="剖析-FullWalkMove-WalkMove"><a href="#剖析-FullWalkMove-WalkMove" class="headerlink" title="剖析 FullWalkMove() &amp; WalkMove()"></a>剖析 <code>FullWalkMove() &amp; WalkMove()</code></h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> ( !<span class="built_in">CheckWater</span>() )</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">StartGravity</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// If we are leaping out of the water, just update the counters.</span></span><br><span class="line"><span class="keyword">if</span> (player-&gt;m_flWaterJumpTime)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">WaterJump</span>();</span><br><span class="line">    <span class="built_in">TryPlayerMove</span>();</span><br><span class="line">    <span class="comment">// See if we are still in water?</span></span><br><span class="line">    <span class="built_in">CheckWater</span>();</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>首先判断玩家是不是在水里。起源引擎中玩家进入水后有一个计数器（便于计算离开水面，或者进行溺水操作——原版 CS 在水里待太久会掉血；远古版本其实也有离开水面后按比例恢复一定血量的设定）。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">CGameMovement::StartGravity</span><span class="params">( <span class="type">void</span> )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">float</span> ent_gravity;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (player-&gt;<span class="built_in">GetGravity</span>())</span><br><span class="line">        ent_gravity = player-&gt;<span class="built_in">GetGravity</span>();</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        ent_gravity = <span class="number">1.0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Add gravity so they&#x27;ll be in the correct position during movement</span></span><br><span class="line">    <span class="comment">// yes, this 0.5 looks wrong, but it&#x27;s not.</span></span><br><span class="line">    mv-&gt;m_vecVelocity[<span class="number">2</span>] -= (ent_gravity * <span class="built_in">GetCurrentGravity</span>() * <span class="number">0.5</span> * gpGlobals-&gt;frametime );</span><br><span class="line">    mv-&gt;m_vecVelocity[<span class="number">2</span>] += player-&gt;<span class="built_in">GetBaseVelocity</span>()[<span class="number">2</span>] * gpGlobals-&gt;frametime;</span><br><span class="line"></span><br><span class="line">    Vector temp = player-&gt;<span class="built_in">GetBaseVelocity</span>();</span><br><span class="line">    temp[ <span class="number">2</span> ] = <span class="number">0</span>;</span><br><span class="line">    player-&gt;<span class="built_in">SetBaseVelocity</span>( temp );</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CheckVelocity</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里是重力的写法。前面都很好理解，但后面的两行：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">mv-&gt;m_vecVelocity[<span class="number">2</span>] -= (ent_gravity * <span class="built_in">GetCurrentGravity</span>() * <span class="number">0.5</span> * gpGlobals-&gt;frametime );</span><br><span class="line">mv-&gt;m_vecVelocity[<span class="number">2</span>] += player-&gt;<span class="built_in">GetBaseVelocity</span>()[<span class="number">2</span>] * gpGlobals-&gt;frametime;</span><br></pre></td></tr></table></figure>
+
+<p>问题所在：<code>0.5</code> 这个值看着很莫名其妙。我们需要去看 <code>FinishGravity()</code>：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">CGameMovement::FinishGravity</span><span class="params">( <span class="type">void</span> )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">float</span> ent_gravity;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ( player-&gt;m_flWaterJumpTime )</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ( player-&gt;<span class="built_in">GetGravity</span>() )</span><br><span class="line">        ent_gravity = player-&gt;<span class="built_in">GetGravity</span>();</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        ent_gravity = <span class="number">1.0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Get the correct velocity for the end of the dt</span></span><br><span class="line">    mv-&gt;m_vecVelocity[<span class="number">2</span>] -= (ent_gravity * <span class="built_in">GetCurrentGravity</span>() * gpGlobals-&gt;frametime * <span class="number">0.5</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CheckVelocity</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里同样用到了 0.5。我借助 AI 分析并综合了自己的理解，这是 Valve 故意对重力这样写的。更准确的说法是：</p>
+<blockquote>
+<p><strong>Source 使用了一个”分裂 &#x2F; 分步的重力更新方式”，把重力加速度在一个 movement tick 的开始和结束各施加一半。</strong> 这在数值积分上相当于**半隐式欧拉（symplectic Euler）**的修正思路——更符合”这一整帧中重力逐渐作用”的直觉。</p>
+</blockquote>
+<p>如果在一开始就已经把速度计算完了，那么整个帧的速度在整帧中都是被重力完全影响后的速度，跳起的抛物线顶点位置就会有偏差。</p>
+<p>接下来继续看 <code>FullWalkMove()</code>：一开始写的是水中的情况——如果在水中，会检测是否跳跃、是否能够离开水面；同时跳跃的事件也会有一个 Timer 触发。这里不深究水中和梯子等特殊情况，只讨论平地上的跳跃和行走：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Friction is handled before we add in any base velocity. That way, if we are on a conveyor,</span></span><br><span class="line"><span class="comment">//  we don&#x27;t slow when standing still, relative to the conveyor.</span></span><br><span class="line"><span class="keyword">if</span> (player-&gt;<span class="built_in">GetGroundEntity</span>() != <span class="literal">NULL</span>)</span><br><span class="line">&#123;</span><br><span class="line">    mv-&gt;m_vecVelocity[<span class="number">2</span>] = <span class="number">0.0</span>;</span><br><span class="line">    <span class="built_in">Friction</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>之前我已经尝试过将基础的摩擦力应用到 UE 上（参考 <code>gamemovement.cpp -&gt; Friction()</code>）。这里学到的是：<strong>摩擦力的作用其实是在基础速度附加之前就已处理</strong>，同时也要考虑摩擦力在传送带上的影响（相对传送带静止时，速度不会被降慢）。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Make sure velocity is valid.</span></span><br><span class="line"><span class="built_in">CheckVelocity</span>();</span><br></pre></td></tr></table></figure>
+
+<p>应用摩擦力之后，检测速度是否有效。至于速度的有效怎么判断，我认为不同场景有不同的写法，没必要完全参考，这里也不赘述。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Add any remaining gravitational component.</span></span><br><span class="line"><span class="keyword">if</span> ( !<span class="built_in">CheckWater</span>() )</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">FinishGravity</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这也很好地解释了为什么 Gravity 要分两步：就是<strong>分步使重力完成</strong>，更符合直觉。</p>
+<h2 id="重要"><a href="#重要" class="headerlink" title="重要"></a>重要</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// If we are on ground, no downward velocity.</span></span><br><span class="line"><span class="keyword">if</span> ( player-&gt;<span class="built_in">GetGroundEntity</span>() != <span class="literal">NULL</span> )</span><br><span class="line">&#123;</span><br><span class="line">    mv-&gt;m_vecVelocity[<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里很好地解释了我当时看源码的疑惑：<strong>起源的速度计算中，地面移动不参考任何垂直方向的速度</strong>。一旦 Source 确认玩家处于 Ground 状态，进入地面移动逻辑时，就不会让向下的 Z 速度继续参与 <code>WalkMove</code> 的地面移动计算。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Make sure velocity is valid.</span></span><br><span class="line"><span class="built_in">CheckVelocity</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (player-&gt;<span class="built_in">GetGroundEntity</span>() != <span class="literal">NULL</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">WalkMove</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">AirMove</span>();  <span class="comment">// Take into account movement when in air.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里就是很简单的判断，<code>WalkMove</code> 和 <code>AirMove</code> 是我们接下来的目标。</p>
+<blockquote>
+<p>Tips: 我的剖析习惯是线性的，但这里我们先一步把 <code>FullWalkMove()</code> 解释完。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Set final flags.</span></span><br><span class="line"><span class="built_in">CategorizePosition</span>();</span><br></pre></td></tr></table></figure>
+
+<p>这里得到 <code>CategorizePosition()</code>，作用字面意思：将玩家所在的位置进行分类。它的逻辑比较混乱——我猜测立项时就有”需要将玩家位置进行分类”的预警，所以写的时候加入了一些新的状态判断。这个函数本身挺有意思，虽然目前不拆解水中和梯子上的移动，但这段代码还是可以看一看的。</p>
+<h3 id="简单剖析-CategorizePosition"><a href="#简单剖析-CategorizePosition" class="headerlink" title="简单剖析 CategorizePosition()"></a>简单剖析 <code>CategorizePosition()</code></h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">Vector point;</span><br><span class="line"><span class="type">trace_t</span> pm;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Reset this each time we-recategorize, otherwise we have bogus friction when we jump into water and plunge downward really quickly</span></span><br><span class="line">player-&gt;m_surfaceFriction = <span class="number">1.0f</span>;</span><br></pre></td></tr></table></figure>
+
+<p>每次判断位置时把摩擦力重置为 1.0。每次重新分类都要重置此值，否则跳入水中快速下沉时会产生虚假的摩擦力（猜测是地面摩擦和水中摩擦叠加产生的摩擦力——起源在当前版本里并没有专门的空中摩擦力说法）。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">CheckWater</span>();</span><br></pre></td></tr></table></figure>
+
+<p>接下来是检查是否在水里。这里有一个注释揭示了设计权衡：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Doing this before we move may introduce a potential latency in water detection, but</span></span><br><span class="line"><span class="comment">// doing it after can get us stuck on the bottom in water if the amount we move up</span></span><br><span class="line"><span class="comment">// is less than the 1 pixel &#x27;threshold&#x27; we&#x27;re about to snap to. Also, we&#x27;ll call</span></span><br><span class="line"><span class="comment">// this several times per frame, so we really need to avoid sticking to the bottom of</span></span><br><span class="line"><span class="comment">// water on each call, and the converse case will correct itself if called twice.</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>水体检测是存在 BUG 的，但因为每帧多次调用反而修复了这个 BUG</strong>（和 Source 的 Step 机制有关——之前阅读时看到在某些条件下角色会被抬高 2 个单位）。</p>
+<p>接着就是检测玩家是否在地面（同时检测地面是否会移动以及玩家处于可移动平面等判断，此处先不赘述）：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Add any remaining gravitational component.</span></span><br><span class="line"><span class="keyword">if</span> ( !<span class="built_in">CheckWater</span>() )</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">FinishGravity</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// If we are on ground, no downward velocity.</span></span><br><span class="line"><span class="keyword">if</span> ( player-&gt;<span class="built_in">GetGroundEntity</span>() != <span class="literal">NULL</span> )</span><br><span class="line">&#123;</span><br><span class="line">    mv-&gt;m_vecVelocity[<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">CheckFalling</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这是 <code>FullWalkMove()</code> 的最后一点内容（后面还有播放在水中的音频相关）。主要两点：一是检查是否在水中，不在水中的话完成剩余未附加在玩家上的重力；二是 Source 很核心的速度内容——<code>mv-&gt;m_vecVelocity[2] = 0;</code> 这段代码在 <code>WalkMove()</code> 中会被反复提及，为什么？因为地面速度计算中起源是这样做的：</p>
+<p><strong>只要玩家在地面上行走，就不去考虑 Z 轴速度。</strong>（注意顺序：一定是先判断是不是在地面上，再去削减 Z 轴速度，而不是时时刻刻都不考虑 Z 轴速度。）</p>
+<h2 id="剖析-WalkMove-（上）"><a href="#剖析-WalkMove-（上）" class="headerlink" title="剖析 WalkMove()（上）"></a>剖析 <code>WalkMove()</code>（上）</h2><h3 id="重要-1"><a href="#重要-1" class="headerlink" title="重要"></a>重要</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> i;</span><br><span class="line"></span><br><span class="line">Vector wishvel;</span><br><span class="line"><span class="type">float</span> spd;</span><br><span class="line"><span class="type">float</span> fmove, smove;</span><br><span class="line">Vector wishdir;</span><br><span class="line"><span class="type">float</span> wishspeed;</span><br></pre></td></tr></table></figure>
+
+<p>这几个变量需要区分，也就是我之前移植时一直没搞懂的一点。这里 <code>Vector</code> 直接指 3D 向量，不像 UE 会区分 <code>FVector2D</code> 和其他向量类型。</p>
+<p>然后就是 <code>spd, fmove, smove</code> 这三个 float 的值。</p>
+<p>然后是 <code>wishdir</code> 和 <code>wishspeed</code>。这里我把它们分别称为<strong>期望方向</strong>和<strong>期望速度</strong>，接下来我们将对这两个东西进行详细讨论。</p>
+<p>（<em>连载上篇至此，剩余部分：<code>WalkMove()</code> 的详细展开（wishvel&#x2F;wishspeed 语义、Friction 公式、AirMove 的 air accelerate 推导）等仍在分析中。</em>）</p>
+<hr>
+<h2 id="勘误（自查修正）"><a href="#勘误（自查修正）" class="headerlink" title="勘误（自查修正）"></a>勘误（自查修正）</h2><p>以下是原文中最早版本里我自查发现的明显错误，保留在文末便于对照：</p>
+<ol>
+<li><strong>“在 UE 里我们为了计算精度，统一使用 double 了” — 错误</strong>。UE 默认 <code>FVector</code> 是 <strong>float（单精度）</strong>，并非 double。UE5 中 <code>FVector::RealType</code> 默认仍是 float，仅双精度构建版本才切换为 double。准确表述应为”UE 使用 float 精度向量”。</li>
+<li><strong>“欧拉积分（第一类&#x2F;第二类，B函数&#x2F;Γ函数）” — 概念混淆</strong>。数值积分中真正使用的是<strong>欧拉积分法（Euler integration method，显式&#x2F;半隐式欧拉算法）</strong>，与数学分析中的”欧拉积分（B函数&#x2F;Γ函数）”是完全不同的概念。本文 Split-Gravity 的理解应该对应<strong>半隐式欧拉（symplectic Euler）</strong>，与 B 函数无关。</li>
+<li><strong>“64tick 每秒检测至少 64 次” — 表述错误</strong>。64tick 就是每秒恰好 64 次，不存在”至少”。</li>
+<li>原文若干错别字（如”参口SSG08”应为”比如”）已随手订正。</li>
+</ol>
+<h3 id="已知未完成"><a href="#已知未完成" class="headerlink" title="已知未完成"></a>已知未完成</h3><ul>
+<li><code>WalkMove()</code> 后半段（wishvel&#x2F;wishspeed 与 Friction&#x2F;Accelerate 公式的完整推导）</li>
+<li><code>AirMove()</code> 与 <code>AirAccelerate()</code> 的推导</li>
+<li><code>FullWalkMove()</code> 中的水&#x2F;梯子处理（有意跳过）</li>
+<li><code>TryPlayerMove()</code> 与碰撞扫描阶段</li>
+</ul>
+<p><em>持续更新中。</em></p>
+]]></content>
+      <categories>
+        <category>Dev</category>
+      </categories>
+      <tags>
+        <tag>SourceEngine</tag>
+        <tag>GameDev</tag>
+        <tag>C++</tag>
+        <tag>Analysis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>水月雨 RAYS 光束：我的 EQ 调音笔记</title>
+    <url>/2026/08/29/moondrop-rays-eq-notes/</url>
+    <content><![CDATA[<blockquote>
+<p>设备：水月雨 MOONDROP RAYS 光束（专业游戏入耳式耳机）<br>本文记录我在这条塞子上调校的 PEQ 参数、每段滤波器的意图，以及一点主观听感。参数仅供参考，调音归根到底还是耳朵说了算。</p>
+<p><strong>AI 辅助声明</strong>：本文由 <strong>DeepSeek-V4-Flash</strong> 模型通过 <a href="https://opencode.ai/">opencode</a> CLI 辅助撰写，EQ 参数由本人实测调校，AI 负责整理成文与逐段分析。</p>
+</blockquote>
+<h2 id="设备简介"><a href="#设备简介" class="headerlink" title="设备简介"></a>设备简介</h2><p>RAYS 光束是水月雨”陨月重工”专业游戏系列的产品，主打 HiFi 声学底子 + 电竞体验：</p>
+<ul>
+<li><strong>单元配置</strong>：10mm 蓝宝石振膜动圈 + 6mm 环形平面磁单元（动圈 + 平板混合双单元）</li>
+<li><strong>阻抗 &#x2F; 灵敏度</strong>：30Ω ± 15%（@1kHz）&#x2F; 120dB&#x2F;Vrms（@1kHz）</li>
+<li><strong>频响范围</strong>：7Hz – 39kHz（有效频响 20Hz – 20kHz，IEC60318-4）</li>
+<li><strong>总谐波失真</strong>：THD ≤ 0.05%（@1kHz）</li>
+<li><strong>接口</strong>：0.78-2pin 可换线，标配 USB-C 线（内置 DSP 游戏声卡）</li>
+<li><strong>调音</strong>：出厂接近 VDSF 曲线，另带硬件级 AI 降噪麦克风</li>
+</ul>
+<p>它最大的特点是<strong>内置 DSP 游戏声卡</strong>：EQ 参数可以写进声卡并记忆存储，换设备、掉驱动都不受影响，通过 <a href="https://moondroplab.com/cn/moondrop-link">MOONDROP Link APP</a> 或 <a href="https://hub.moondroplab.tech/">在线可视化调音平台</a> 随时调整。</p>
+<h2 id="我的-EQ-参数"><a href="#我的-EQ-参数" class="headerlink" title="我的 EQ 参数"></a>我的 EQ 参数</h2><p>当前在用的 8 段 PEQ，全部为 PK（峰值）滤波器：</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>中心频率</th>
+<th>增益</th>
+<th>Q 值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>21 Hz</td>
+<td>-7.1 dB</td>
+<td>0.500</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1200 Hz</td>
+<td>-0.5 dB</td>
+<td>0.900</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2000 Hz</td>
+<td>+0.5 dB</td>
+<td>1.300</td>
+</tr>
+<tr>
+<td>4</td>
+<td>3500 Hz</td>
+<td>-2.1 dB</td>
+<td>2.100</td>
+</tr>
+<tr>
+<td>5</td>
+<td>6700 Hz</td>
+<td>+2.7 dB</td>
+<td>1.900</td>
+</tr>
+<tr>
+<td>6</td>
+<td>11000 Hz</td>
+<td>-2.2 dB</td>
+<td>2.100</td>
+</tr>
+<tr>
+<td>7</td>
+<td>15000 Hz</td>
+<td>+1.2 dB</td>
+<td>3.500</td>
+</tr>
+<tr>
+<td>8</td>
+<td>18000 Hz</td>
+<td>-6.5 dB</td>
+<td>0.500</td>
+</tr>
+</tbody></table>
+<p>PEQ 文本格式（可直接粘贴给 Equalizer APO &#x2F; Wavelet &#x2F; Peace 等软件）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Filter 1: ON PK Fc 21 Hz Gain -7.1 dB Q 0.500</span><br><span class="line">Filter 2: ON PK Fc 1200 Hz Gain -0.5 dB Q 0.900</span><br><span class="line">Filter 3: ON PK Fc 2000 Hz Gain 0.5 dB Q 1.300</span><br><span class="line">Filter 4: ON PK Fc 3500 Hz Gain -2.1 dB Q 2.100</span><br><span class="line">Filter 5: ON PK Fc 6700 Hz Gain 2.7 dB Q 1.900</span><br><span class="line">Filter 6: ON PK Fc 11000 Hz Gain -2.2 dB Q 2.100</span><br><span class="line">Filter 7: ON PK Fc 15000 Hz Gain 1.2 dB Q 3.500</span><br><span class="line">Filter 8: ON PK Fc 18000 Hz Gain -6.5 dB Q 0.500</span><br></pre></td></tr></table></figure>
+
+<h2 id="每段滤波器在干什么"><a href="#每段滤波器在干什么" class="headerlink" title="每段滤波器在干什么"></a>每段滤波器在干什么</h2><h3 id="1-21-Hz，-7-1-dB，Q-0-5-——-极低频削峰"><a href="#1-21-Hz，-7-1-dB，Q-0-5-——-极低频削峰" class="headerlink" title="1. 21 Hz，-7.1 dB，Q 0.5 —— 极低频削峰"></a>1. 21 Hz，-7.1 dB，Q 0.5 —— 极低频削峰</h3><p>游戏耳机普遍把极低频做得比较足，21Hz 附近往往有个明显隆起。Q&#x3D;0.5 的宽峰削 7dB，只动极低频，几乎不碰 60–100Hz 的”低频心跳”，能明显减掉轰头感和低频对中频的掩蔽。</p>
+<h3 id="2-1200-Hz，-0-5-dB，Q-0-9-——-轻微清润"><a href="#2-1200-Hz，-0-5-dB，Q-0-9-——-轻微清润" class="headerlink" title="2. 1200 Hz，-0.5 dB，Q 0.9 —— 轻微清润"></a>2. 1200 Hz，-0.5 dB，Q 0.9 —— 轻微清润</h3><p>低频到中频的过渡区，略微去一点糊感和”鼻音”。量很小，不伤厚度，只是让声音干净一点。</p>
+<h3 id="3-2000-Hz，-0-5-dB，Q-1-3-——-中频存在感"><a href="#3-2000-Hz，-0-5-dB，Q-1-3-——-中频存在感" class="headerlink" title="3. 2000 Hz，+0.5 dB，Q 1.3 —— 中频存在感"></a>3. 2000 Hz，+0.5 dB，Q 1.3 —— 中频存在感</h3><p>2kHz 是人声可懂度和临场感的核心频段，+0.5dB 让中频更有存在感，游戏里的语音播报、BGM 人声会更清楚。</p>
+<h3 id="4-3500-Hz，-2-1-dB，Q-2-1-——-压齿音-刺激区"><a href="#4-3500-Hz，-2-1-dB，Q-2-1-——-压齿音-刺激区" class="headerlink" title="4. 3500 Hz，-2.1 dB，Q 2.1 —— 压齿音&#x2F;刺激区"></a>4. 3500 Hz，-2.1 dB，Q 2.1 —— 压齿音&#x2F;刺激区</h3><p>3–5kHz 是人耳最敏感的区域，RAYS 在这个频段能量偏多。削 2dB 之后刺感明显下降，长时间游戏、听高频密集的配乐也不会累，这也是全频段最重要的”耐听”手段之一。</p>
+<h3 id="5-6700-Hz，-2-7-dB，Q-1-9-——-存在感与定位"><a href="#5-6700-Hz，-2-7-dB，Q-1-9-——-存在感与定位" class="headerlink" title="5. 6700 Hz，+2.7 dB，Q 1.9 —— 存在感与定位"></a>5. 6700 Hz，+2.7 dB，Q 1.9 —— 存在感与定位</h3><p>整条 EQ 里最大的抬升。6–7kHz 是脚步声、枪械细节、结像与声像定位的关键频段，抬 2.7dB 后游戏里的方位感非常清晰，子弹和脚步的”指向性”一下就出来了。Q≈2 的窄峰，不会污染邻近频段。</p>
+<h3 id="6-11000-Hz，-2-2-dB，Q-2-1-——-压超高频峰"><a href="#6-11000-Hz，-2-2-dB，Q-2-1-——-压超高频峰" class="headerlink" title="6. 11000 Hz，-2.2 dB，Q 2.1 —— 压超高频峰"></a>6. 11000 Hz，-2.2 dB，Q 2.1 —— 压超高频峰</h3><p>RAYS 在 11kHz 附近有一个峰（动圈超高频共振的常见位置），镲片和合成器音色会显得偏亮、偏散。削掉之后高频更干净、更贴耳。</p>
+<h3 id="7-15000-Hz，-1-2-dB，Q-3-5-——-空气感"><a href="#7-15000-Hz，-1-2-dB，Q-3-5-——-空气感" class="headerlink" title="7. 15000 Hz，+1.2 dB，Q 3.5 —— 空气感"></a>7. 15000 Hz，+1.2 dB，Q 3.5 —— 空气感</h3><p>15kHz 微抬，给泛音补一点光泽和”空气感”。Q&#x3D;3.5 非常窄，只影响极高频顶端，日常几乎无副作用。</p>
+<h3 id="8-18000-Hz，-6-5-dB，Q-0-5-——-顶端兜底"><a href="#8-18000-Hz，-6-5-dB，Q-0-5-——-顶端兜底" class="headerlink" title="8. 18000 Hz，-6.5 dB，Q 0.5 —— 顶端兜底"></a>8. 18000 Hz，-6.5 dB，Q 0.5 —— 顶端兜底</h3><p>最顶端的宽带削峰，把 16–20kHz 整体拉平，压制可能的刺耳尖峰和系统噪底。人耳对 18kHz 以上本就不太敏感，这一段主要是”防刺”。</p>
+<h2 id="整体思路"><a href="#整体思路" class="headerlink" title="整体思路"></a>整体思路</h2><p>这套调音可以概括为三个词：<strong>去轰、去刺、抓细节</strong>。</p>
+<ul>
+<li>极低频大幅削（21Hz），告别低频轰鸣</li>
+<li>敏感频段压平（3.5kHz &#x2F; 11kHz），让声音耐听</li>
+<li>6.7kHz 重点抬升，保住游戏定位与细节</li>
+</ul>
+<p>最终呈现出一个低频干净、高频柔和、6–7kHz 突出的”游戏向耐听调音”，同时保留 RAYS 双单元本身的解析底子。拿来当 HiFi 塞子听人声，也不会出戏。</p>
+<h2 id="一些说明"><a href="#一些说明" class="headerlink" title="一些说明"></a>一些说明</h2><ul>
+<li>听感全部基于个人主观。不同耳塞套（硅胶 &#x2F; 记忆棉）、不同佩戴深度都会影响低频和齿音段的响应，参数仅供参考，建议从”全关”开始逐段加，亲自体会每段变化。</li>
+<li>RAYS 的 DSP 声卡可以直接存储这 8 段参数并记忆，MOONDROP Link APP 和在线调音平台都能编辑；Windows 上想走别的播放链路，也可以把这组参数原样丢进 Equalizer APO &#x2F; Wavelet。</li>
+<li>设备详情页：<a href="https://moondroplab.com/cn/products/rays">水月雨 RAYS 光束</a>。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Audio</category>
+      </categories>
+      <tags>
+        <tag>Audio</tag>
+        <tag>EQ</tag>
+        <tag>DSP</tag>
+        <tag>MOONDROP</tag>
+        <tag>HiFi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>UE5 移植 Source Engine 移动系统：Bhop 手感从源码到实现</title>
+    <url>/2026/09/05/ue5-source-movement-port/</url>
+    <content><![CDATA[<blockquote>
+<p>项目仓库：<a href="https://github.com/FearlessYuzuki/Source-Engine-Movement-To-UnrealEngine">Source-Engine-Movement-To-UnrealEngine</a><br>本文为项目 README 的存档版本，结构与 GitHub 主页一致。</p>
+</blockquote>
+<hr>
+<h2 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h2><p>作为 4000+ 小时 CS 玩家，我希望证明一件事：<strong>Bhop &#x2F; Strafe 的手感背后有一套精确的物理模型，而不是”引擎的玄学”</strong>。</p>
+<p>本项目不满足于”抄公式”，而是沿着 Source 的完整物理管线走了一遍：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">玩家输入 → wishvel / wishdir → accelerate → friction → velocity → 位置</span><br></pre></td></tr></table></figure>
+
+<p>然后在 UE5 的 CMC（CharacterMovementComponent）架构中复刻这套规则。移植原则：</p>
+<blockquote>
+<p><strong>保留 UE 的移动框架（输入管线、碰撞、移动模式），替换其中的”速度更新规则”。</strong></p>
+</blockquote>
+<hr>
+<h2 id="技术原理"><a href="#技术原理" class="headerlink" title="技术原理"></a>技术原理</h2><h3 id="1-输入映射：Source-的-fmove-smove-如何对应-UE-的-Acceleration"><a href="#1-输入映射：Source-的-fmove-smove-如何对应-UE-的-Acceleration" class="headerlink" title="1. 输入映射：Source 的 fmove/smove 如何对应 UE 的 Acceleration"></a>1. 输入映射：Source 的 <code>fmove/smove</code> 如何对应 UE 的 <code>Acceleration</code></h3><p>这是移植中最容易搞错的点，以下结论对照 <code>source-sdk-2013</code> 逐行核对得出：</p>
+<ul>
+<li><code>Acceleration.GetSafeNormal2D()</code> <strong>≡ Source 的 <code>wishdir</code></strong></li>
+<li><code>Acceleration.Size() / MaxAcceleration</code> <strong>≡ Source 的 <code>wishspeed / m_maxspeed</code></strong></li>
+<li>Source 在移动组件内部做 <code>AngleVectors</code>；UE 已把这一步前移到输入层（<code>AddMovementInput</code>），所以 CMC 里看不到 <code>m_flForwardMove</code> 原始标量——<strong>它没有消失，只是被”旋转+合成”成了世界空间向量</strong></li>
+</ul>
+<h3 id="2-为什么必须重写-CalcVelocity（而不是叠加）"><a href="#2-为什么必须重写-CalcVelocity（而不是叠加）" class="headerlink" title="2. 为什么必须重写 CalcVelocity（而不是叠加）"></a>2. 为什么必须重写 <code>CalcVelocity</code>（而不是叠加）</h3><p>UE5 默认地面逻辑会<strong>直接杀死 Bhop 速度</strong>：</p>
+<ol>
+<li>默认有效摩擦 &#x3D; <code>GroundFriction(8.0) × BrakingFrictionFactor(2.0) = 16.0</code></li>
+<li>速度被钳制在 <code>MaxWalkSpeed (600)</code></li>
+<li>方向修正摩擦会把速度向加速度方向做 lerp，改变运动方向</li>
+</ol>
+<p>所以要复刻 Bhop，必须自己实现地面分支（地面不参考 Z 轴速度 + Source 式摩擦先于加速）。</p>
+<h3 id="3-Source-加速模型的还原"><a href="#3-Source-加速模型的还原" class="headerlink" title="3. Source 加速模型的还原"></a>3. Source 加速模型的还原</h3><ul>
+<li><strong>空气加速 <code>AirAccelerate</code></strong>：以 <code>wishdir/wishspeed</code> 为准，按 <code>accelspeed = wishspeed * dt * acceleration</code> 计算增速，并钳制 <code>accelspeed &gt; addspeed → addspeed</code>，实现”空中变向不掉速”</li>
+<li><strong>分步重力</strong>：<code>StartGravity / FinishGravity</code> 各施加一半重力（那个著名的 <code>0.5</code>），整个帧内重力逐渐作用，更符合跳跃手感</li>
+<li><strong>地面摩擦</strong>：按 <code>stop speed / friction</code> 系数衰减，静止相对传送带不减速</li>
+</ul>
+<hr>
+<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> 自定义 <code>USourceCharacterMovementComponent</code>：重写 <code>CalcVelocity</code>，拆分 <code>AirMove</code> &#x2F; <code>WalkMove</code> &#x2F; <code>ApplyFriction</code></li>
+<li><input checked="" disabled="" type="checkbox"> 空气加速（Bhop &#x2F; Air Strafe 核心）与地面摩擦模型</li>
+<li><input checked="" disabled="" type="checkbox"> 空中连跳（落地自动触发 + 输入事件绑定）</li>
+<li><input checked="" disabled="" type="checkbox"> 检查点重生系统：碰撞盒重叠 → 实时更新重生点 → 高度阈值掉落检测 → 复活传送；未触碰检查点时回退 <code>PlayerStart</code> 出生点</li>
+<li><input checked="" disabled="" type="checkbox"> 第一&#x2F;第三人称双相机系统（SpringArm + CameraComponent 即时切换）</li>
+<li><input checked="" disabled="" type="checkbox"> UMG 调试面板（<code>BindWidget</code> + <code>AddDynamic</code> 委托绑定）</li>
+<li><input checked="" disabled="" type="checkbox"> Enhanced Input 体系（PlayerController 侧集中注册 IMC）</li>
+<li><input checked="" disabled="" type="checkbox"> <code>DevMode</code> 统一调试开关：全部调试输出收敛到一个 <code>bDevMode</code>，正常游玩零打扰</li>
+<li><input disabled="" type="checkbox"> KZ 身法测量地图：刻度跑道 + gap 阵列 + 速度显示（进行中）</li>
+<li><input disabled="" type="checkbox"> <code>sv_*</code> 风格参数调优体系（进行中）</li>
+</ul>
+<hr>
+<h2 id="研究与笔记"><a href="#研究与笔记" class="headerlink" title="研究与笔记"></a>研究与笔记</h2><ul>
+<li><strong>博客主页</strong>: <a href="https://fearlessyuzuki.github.io/">https://fearlessyuzuki.github.io</a></li>
+<li><strong>核心研究笔记</strong>：《<a href="../review-the-code-from-2013/">Review the code from 2013 —— gamemovement.cpp 逐段剖析</a>》，本人撰写，包含 <code>CheckParameters / PlayerMove / FullWalkMove / CategorizePosition</code> 的拆解，重点分析分步重力（<code>StartGravity / FinishGravity</code> 各施加一半的 <code>0.5</code>）、视角同步归一化（<code>YAW ± 360</code> 处理）、ladder 特殊移动模式等机制。</li>
+</ul>
+<hr>
+<h2 id="Citations-参考资源"><a href="#Citations-参考资源" class="headerlink" title="Citations(参考资源)"></a>Citations(参考资源)</h2><ul>
+<li><a href="https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/game/shared/gamemovement.cpp">Valve Source SDK 2013 — gamemovement.cpp</a></li>
+<li><a href="https://www.bilibili.com/video/BV1BsNheREEB/">Bilibili Tutorial (Chinese)</a><ul>
+<li><a href="https://youtu.be/gRqoXy-0d84">YouTube (English Original)</a></li>
+</ul>
+</li>
+<li><a href="https://www.reddit.com/r/programming/comments/kui5b8/the_code_behind_quakes_movement_tricks_explained/">Reddit — The Code Behind Quake’s Movement Tricks Explained</a></li>
+<li><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=184184420">Steam Workshop — Bhop Guide</a></li>
+</ul>
+<hr>
+<h2 id="开发学习记录"><a href="#开发学习记录" class="headerlink" title="开发学习记录"></a>开发学习记录</h2><p>一些过程中的经验与踩坑：</p>
+<ul>
+<li><strong>Live Coding 的坑</strong>：Live Coding 热更新不会覆盖所有改动，涉及头文件&#x2F;新增类时必须完整重编译，否则会出现”代码改了但行为不变”</li>
+<li><strong>蓝图协作</strong>：C++ 类与蓝图紧密耦合，GameMode &#x2F; Controller &#x2F; 输入映射等必须在蓝图&#x2F;Project Settings 侧配对配置</li>
+<li><strong>UE 官方文档</strong>：难度不在 C++ 而在于需要先理解引擎概念（pawn&#x2F;controller&#x2F;component 生命周期），否则看起来非常吃力</li>
+<li><strong>调试规范</strong>：所有调试输出（屏幕消息、DrawDebugLine）收敛到 <code>DevMode</code> 统一开关，避免每帧刷屏</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Dev</category>
+      </categories>
+      <tags>
+        <tag>SourceEngine</tag>
+        <tag>C++</tag>
+        <tag>UnrealEngine</tag>
+        <tag>Movement</tag>
+        <tag>GamePlay</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>从零构建 Windows 双屏分辨率切换工具：C#、EDID 与那些坑</title>
+    <url>/2026/08/27/building-windows-resolution-changer/</url>
+    <content><![CDATA[<blockquote>
+<p>项目开源：<a href="https://github.com/FearlessYuzuki/Easy-Resolution-Changer">FearlessYuzuki&#x2F;Easy-Resolution-Changer</a><br>本篇文章是对该项目开发过程的完整技术复盘。</p>
+<p><strong>AI 辅助声明</strong>：本文项目（及其开发、调试、Git 发布流程）由 <strong>DeepSeek-V4-Flash-Vision-Exp</strong> 模型通过 <a href="https://opencode.ai/">opencode</a> CLI 辅助完成，人负责需求描述与界面验收。README 中附有完整 Vibe Coding 数据：消耗 ¥1.16、105 次 API 请求、8,843,432 tokens。</p>
+</blockquote>
+<p>起因很简单：手上有两台 1080p 显示器（一台 240Hz 主屏、一台 165Hz 副屏），经常需要在”高刷游戏”和”日常省电”等方案间来回切，Windows 自带的设置要点好几层菜单。于是想做一个一键切换的小工具，顺手练一下 Windows 系统编程——结果发现，看似简单的”改分辨率”，背后全是细节。</p>
+<h2 id="需求还原"><a href="#需求还原" class="headerlink" title="需求还原"></a>需求还原</h2><ul>
+<li>界面：Mac 风格圆角窗口，左右两块显示器卡片（图标 + 型号 + 下拉框）</li>
+<li>下拉框只列<strong>系统真实支持</strong>的分辨率&#x2F;刷新率模式（不是瞎编的组合）</li>
+<li>三个按钮：应用（临时）、保存（应用 + 持久化）、恢复（还原启动时状态）</li>
+<li>能显示显示器<strong>真实型号</strong>（从 EDID 读，而不是”Generic PnP Monitor”这种废物名字）</li>
+</ul>
+<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p>纯 C# + WPF（代码构建 UI，无 XAML），目标 .NET Framework 4.8——因为 <code>csc.exe</code> 是系统自带的最小编译方案，不需要装 VS 就能出 exe：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Program.cs         入口</span><br><span class="line">DisplayInfo.cs     系统层：枚举显示器/模式、EDID 解析、切换分辨率</span><br><span class="line">MainWindow.cs      UI 层：圆角窗口、卡片、下拉框、按钮</span><br><span class="line">build.cmd          一键编译（csc + Reference Assemblies）</span><br></pre></td></tr></table></figure>
+
+<h2 id="技术点-1：枚举显示器"><a href="#技术点-1：枚举显示器" class="headerlink" title="技术点 1：枚举显示器"></a>技术点 1：枚举显示器</h2><p>核心 API 来自 <code>user32.dll</code> 的 <code>EnumDisplayDevices</code> + <code>EnumDisplaySettings</code>。第一级枚举显卡适配器，通过 <code>DISPLAY_DEVICE_ATTACHED_TO_DESKTOP</code>（0x1）筛选真实接入的显示器，跳过未连接的虚拟适配器（如 NVIDIA GameViewer 会创建十几条未接入的设备，全是障眼法）：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 第一级：枚举适配器</span></span><br><span class="line">EnumDisplayDevices(<span class="literal">null</span>, i, <span class="keyword">ref</span> dd, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span> ((dd.StateFlags &amp; <span class="number">0x1</span>) == <span class="number">0</span>) <span class="keyword">continue</span>;   <span class="comment">// 未接入桌面</span></span><br><span class="line"><span class="keyword">if</span> ((dd.StateFlags &amp; <span class="number">0x8</span>) != <span class="number">0</span>) <span class="keyword">continue</span>;   <span class="comment">// 镜像驱动</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二级：拿到嵌入的显示器设备 ID（MONITOR\SKG2512\&#123;guid&#125;）</span></span><br><span class="line">EnumDisplayDevices(dd.DeviceName, <span class="number">0</span>, <span class="keyword">ref</span> dd2, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="坑-1：P-Invoke-的-CharSet-必须对齐"><a href="#坑-1：P-Invoke-的-CharSet-必须对齐" class="headerlink" title="坑 #1：P&#x2F;Invoke 的 CharSet 必须对齐"></a>坑 #1：P&#x2F;Invoke 的 CharSet 必须对齐</h3><p>第一版崩溃点：<code>DllImport</code> 没写 <code>CharSet</code>，默认 ANTI 版本 <code>EnumDisplayDevicesA</code> 被调用，而结构体却是 Unicode 布局——返回的数据全变成乱码（像 <code>屜尮?偓??</code>），甚至”成功”枚举出 14 个假设备。</p>
+<p><strong>教训：<code>DllImport(&quot;user32.dll&quot;, CharSet = CharSet.Unicode)</code> 必须显式声明，且 <code>DEVMODE</code>&#x2F;<code>DISPLAY_DEVICE</code> 结构体的 <code>CharSet</code> 保持一致。</strong></p>
+<p>另外注意：设备名传给 <code>EnumDisplaySettings</code> 时要带 <code>\\.\</code> 前缀（<code>\\.\DISPLAY2</code>），只写 <code>DISPLAY2</code> 会静默失败。</p>
+<h2 id="技术点-2：模式枚举（分辨率列表）"><a href="#技术点-2：模式枚举（分辨率列表）" class="headerlink" title="技术点 2：模式枚举（分辨率列表）"></a>技术点 2：模式枚举（分辨率列表）</h2><p><code>EnumDisplaySettings</code> 从 <code>i = 0</code> 开始枚举所有模式（0 是注册表模式），每个模式是一个 <code>DEVMODE</code>，包含宽、高、刷新率、色深。由于驱动会重复上报同一模式（刷新率 119&#x2F;120 都是邻居），要按 <code>WxH@Hz</code> 去重：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; ; i++) &#123;</span><br><span class="line">    EnumDisplaySettings(dev, i, <span class="keyword">ref</span> mode);</span><br><span class="line">    <span class="keyword">if</span> (!success) <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">if</span> (mode.dmBitsPerPel != <span class="number">32</span>) <span class="keyword">continue</span>;</span><br><span class="line">    key = <span class="string">$&quot;<span class="subst">&#123;mode.dmPelsWidth&#125;</span>x<span class="subst">&#123;mode.dmPelsHeight&#125;</span>@<span class="subst">&#123;mode.dmDisplayFrequency&#125;</span>&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span> (!seen.Add(key)) <span class="keyword">continue</span>;   <span class="comment">// 去重</span></span><br><span class="line">    modes.Add(mode);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后按面积降序、刷新率降序排序，UI 里第一项永远是最常选的那个。</p>
+<p>小发现：Samsung 240Hz 主屏支持 <strong>每个分辨率</strong> 都有 240Hz 选项（1280x720@240、1366x768@240……），AOC 副屏则最高只有 165Hz——EDID 的能力差异一目了然。</p>
+<h2 id="技术点-3：EDID-解析显示器型号"><a href="#技术点-3：EDID-解析显示器型号" class="headerlink" title="技术点 3：EDID 解析显示器型号"></a>技术点 3：EDID 解析显示器型号</h2><p>第二级 <code>EnumDisplayDevices</code> 拿到的 <code>DeviceString</code> 永远是 “Generic PnP Monitor”，得自己啃 EDID。</p>
+<p>两条路：</p>
+<ol>
+<li><strong>Win32</strong>: <code>EnumDisplayDevices</code> 第二级的 <code>DeviceID</code> 里有厂商代码（<code>MONITOR\SKG2512</code> → SKG），但只有一个三字符代码</li>
+<li><strong>注册表</strong>: <code>HKLM\SYSTEM\CurrentControlSet\Enum\DISPLAY\&lt;型号&gt;\&lt;实例&gt;\Device Parameters\EDID</code>（无需管理员权限），是完整 128&#x2F;256&#x2F;384 字节 EDID</li>
+</ol>
+<p><strong>策略</strong>：从 DeviceID 提取厂商码（如 SKG），遍历注册表所有 EDID，匹配厂商码后解析 <code>0xFC</code> 显示器名描述符。这样能应对多显示器串号问题。</p>
+<h3 id="坑-2：EDID-描述符的偏移"><a href="#坑-2：EDID-描述符的偏移" class="headerlink" title="坑 #2：EDID 描述符的偏移"></a>坑 #2：EDID 描述符的偏移</h3><p>EDID 里显示器名描述符的标签位置，我先后试了”块起始 +4”、”块起始 +6”，全都不对。最后还是老实 dump 十六进制才看清真实布局：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">00 00 00 FC 00 50 32 34 41 32 47 0A ...   ← &quot;P24A2G&quot;</span><br><span class="line">00 00 00 FD 00 30 A5 BA BA 2D 01 0A ...   ← 频率范围</span><br></pre></td></tr></table></figure>
+
+<p>标签（<code>FC</code>&#x2F;<code>FD</code>&#x2F;<code>FF</code>）实际位于描述符块偏移 <strong>+3</strong> 处，名称从 +5 开始。稳妥做法是直接扫描 <code>00 00 00 FC 00</code> 字节模式，而不是依赖理论偏移。</p>
+<p>最终成品识别出：<strong>Samsung H25T7-3（主屏 240Hz）</strong> 和 <strong>AOC P24A2G（副屏 165Hz）</strong>，名字直接显示在卡片上。</p>
+<h2 id="技术点-4：切换分辨率"><a href="#技术点-4：切换分辨率" class="headerlink" title="技术点 4：切换分辨率"></a>技术点 4：切换分辨率</h2><p>写操作就是 <code>ChangeDisplaySettingsEx</code>：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">mode.dmSize = <span class="keyword">sizeof</span>(DEVMODE);</span><br><span class="line">mode.dmFields = DM_PELSWIDTH | DM_PELSHEIGHT | DM_DISPLAYFREQUENCY | DM_BITSPERPEL;</span><br><span class="line">mode.dmBitsPerPel = <span class="number">32</span>;</span><br><span class="line"><span class="built_in">int</span> r = ChangeDisplaySettingsEx(deviceName, <span class="keyword">ref</span> mode, IntPtr.Zero,</span><br><span class="line">        persist ? CDS_UPDATEREGISTRY : <span class="number">0</span>, IntPtr.Zero);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>CDS_UPDATEREGISTRY</code>：写入注册表，<strong>重启后保持</strong>（对应”保存”按钮）</li>
+<li>不带 flag：仅当前会话临时生效（对应”应用”按钮）</li>
+<li>返回值 <code>DISP_CHANGE_BADMODE (-2)</code> 说明模式不在列表里——所以列表必须是真实枚举出来的</li>
+</ul>
+<h2 id="UI：WPF-纯代码构建的-Mac-风格窗口"><a href="#UI：WPF-纯代码构建的-Mac-风格窗口" class="headerlink" title="UI：WPF 纯代码构建的 Mac 风格窗口"></a>UI：WPF 纯代码构建的 Mac 风格窗口</h2><p>用代码（<code>FrameworkElementFactory</code>）而不是 XAML 构建模板，两条重要结论：</p>
+<ul>
+<li><strong>Border 的 CornerRadius 不裁剪子元素</strong>！圆角只是背景的形状，子控件照样方角渲染。标题栏的方角实色矩形会像”凸起”一样盖住窗口圆角——需要在内容容器上加 <code>RectangleGeometry</code> 的 Clip，并在 <code>SizeChanged</code> 里更新尺寸</li>
+<li><strong><code>Grid</code> 的子元素必须显式 <code>Grid.SetRow</code></strong>，忘了的话全挤在第一行互相重叠（第一次运行 UI”完全错位”就是这个原因）</li>
+</ul>
+<p>配色走 macOS 那一套：背景 <code>#F5F5F7</code>、卡片白 + <code>#E5E5EA</code> 细边框、主色 <code>#007AFF</code>（系统蓝）、红黄绿交通灯 <code>#FF5F57/#FEBC2E/#28C840</code>。</p>
+<h2 id="坑-3：C-5-兼容性"><a href="#坑-3：C-5-兼容性" class="headerlink" title="坑 #3：C# 5 兼容性"></a>坑 #3：C# 5 兼容性</h2><p>系统自带的 <code>csc.exe</code>（v4.0.30319）是 C# 5 编译器——不支持表达式体方法（<code>=&gt;</code>）、不支持 pattern matching（<code>is Type x</code>）、不支持内联 out 变量（<code>out string sv</code>）。全都要改写。要么改用 Roslyn，要么老实写 C# 5 语法。</p>
+<h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><ul>
+<li>主屏卡片：显示器 1 · Samsung H25T7-3 · 主屏 · 1920×1080 @ 240Hz</li>
+<li>副屏卡片：显示器 2 · AOC P24A2G · 1920×1080 @ 165Hz</li>
+<li>下拉框就是系统模式列表，一键应用&#x2F;保存&#x2F;恢复</li>
+</ul>
+<h2 id="复现与扩展"><a href="#复现与扩展" class="headerlink" title="复现与扩展"></a>复现与扩展</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:FearlessYuzuki/Easy-Resolution-Changer.git</span><br><span class="line"><span class="built_in">cd</span> Easy-Resolution-Changer</span><br><span class="line"><span class="comment"># Windows 双击 build.cmd 即可编译出 exe</span></span><br></pre></td></tr></table></figure>
+
+<p>扩展方向：托盘常驻 + 全局热键、双屏组合方案（一键切换整套配置）、NVIDIA 自定义分辨率注入。</p>
+]]></content>
+      <categories>
+        <category>Dev</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>CSharp</tag>
+        <tag>WPF</tag>
+        <tag>PInvoke</tag>
+        <tag>EDID</tag>
+        <tag>AI</tag>
+      </tags>
+  </entry>
+</search>
