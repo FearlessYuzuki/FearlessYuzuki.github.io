@@ -1,4 +1,258 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Tag: C++ | Yuzuik's Blog</title><meta charset="UTF-8"><meta name="description" content="Log &amp; Dev"><meta name="keywords" content="C++, Linux, UE, Unity, Hexo, Rust, Java, C#, Algorithms"><meta name="author" content="sorrow"><link rel="icon" type="image/svg+xml" href="/img/avatar.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;700&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="/fonts/fontawesome/css/all.min.css?v=1792066348261"><link rel="stylesheet" href="/css/style.css?v=1792066348261"><script>window.komorebiConfig = {
-  emails: ["fearlessyuzuki@xs.wbu.edu.cn","fearlessyuzuki@foxmail.com"]
-};
-</script><meta name="generator" content="Hexo 8.1.2"></head><body class="page"><div class="site-wrapper"><nav class="topbar"><div class="topbar-left"><div class="window-controls"><span class="dot dot-close"></span><span class="dot dot-min"></span><span class="dot dot-max"></span></div><a class="topbar-avatar-link" href="/" aria-label="Home"><img class="topbar-avatar" src="/img/avatar.svg" alt="sorrow"></a><div class="topbar-user"><div class="topbar-username">sorrow</div><div class="topbar-hostname">@Yuzuik's Blog</div></div></div><div class="topbar-spacer"></div><div class="topbar-right"><a class="topbar-home" href="/" aria-label="Home"><i class="fas fa-house"></i></a><div class="topbar-search"><button class="topbar-search-toggle" aria-label="Search"><i class="fas fa-search"></i></button></div><button class="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon theme-icon-dark"></i><i class="fas fa-sun theme-icon-light"></i></button><div class="topbar-lang"><button class="topbar-lang-toggle" type="button" aria-label="Switch Language"><span class="lang-current">EN</span><div class="topbar-lang-dropdown"><a class="topbar-lang-option" href="#" data-lang="en">EN</a><a class="topbar-lang-option" href="#" data-lang="zh-CN">CN</a></div></button></div><div class="topbar-clock"><div class="clock-time"><span id="clock-time">--:--</span><span class="clock-date" id="clock-date">----- //</span></div></div></div></nav><main class="site-content"><div class="tag-header"><div class="window-dots"><span class="dot dot-close"></span><span class="dot dot-min"></span><span class="dot dot-max"></span></div><h1 class="tag-title"><i class="fas fa-tag"></i> C++</h1></div><ul class="post-list"><li class="post-list-item animate-in"><div class="post-list-date">09-05</div><div class="post-list-title"><a href="/2026/09/05/review-the-code-from-2013/">Review the code from 2013：剖析 Source Engine 玩家移动核心（连载·上）</a></div></li><li class="post-list-item animate-in"><div class="post-list-date">09-05</div><div class="post-list-title"><a href="/2026/09/05/ue5-source-movement-port/">UE5 移植 Source Engine 移动系统：Bhop 手感从源码到实现</a></div></li></ul><div class="pagination-wrapper"><span class="page-number current">1</span></div></main><footer class="site-footer"><div class="footer-inner"><div class="social-links"><a class="social-link" href="mailto:fearlessyuzuki@xs.wbu.edu.cn" title="E-mail" rel="noopener"><i class="fas fa-envelope"></i></a><a class="social-link" href="https://github.com/FearlessYuzuki" title="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a><a class="social-link" href="https://space.bilibili.com/292010680" title="Bilibili" target="_blank" rel="noopener"><i class="fab fa-bilibili"></i></a></div><div class="footer-meta"><span class="copyright">&copy; 2019&ndash;2026 sorrow</span><span class="separator">&middot;</span><span>Powered by<a href="https://hexo.io" target="_blank">Hexo</a> &amp; <span>Tokyo Night</span></span></div><div class="visit-count"><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span class="separator">|</span><span><i class="fas fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div></footer></div><div class="music-player" id="music-player" data-song-id="3438048323" data-song-url="https://music.163.com/#/song?id=3438048323"><button class="music-player-collapse" id="music-player-collapse" type="button" aria-label="收起/展开播放器"><i class="fas fa-chevron-left music-player-collapse-close"></i><i class="fas fa-music music-player-collapse-open"></i></button><div class="music-player-disc"><img class="music-player-cover" src="https://p2.music.126.net/Z5ug8MHXYJuf4Wd6QdTBtQ==/109951173961015100.jpg" alt="メドレーの観察"><div class="music-player-disc-hole"></div></div><div class="music-player-track"><div class="music-player-name" title="メドレーの観察">メドレーの観察</div><div class="music-player-artist">明透</div></div><div class="music-player-controls"><button class="music-player-play" id="music-player-play" type="button" aria-label="播放/暂停"><i class="fas fa-play" id="music-player-play-icon"></i></button><a class="music-player-open" href="https://music.163.com/#/song?id=3438048323" target="_blank" rel="noopener" aria-label="打开网易云" title="在网易云打开"><i class="fas fa-external-link-alt"></i></a></div><div class="music-player-frame" id="music-player-frame"></div><a class="music-player-page" href="/music/">daydream · 歌单 <i class="fas fa-chevron-right"></i></a></div><div class="profile-card" id="profile-card" data-github="FearlessYuzuki"><a class="profile-avatar-link" href="https://github.com/FearlessYuzuki" target="_blank" rel="noopener"><img class="profile-avatar" src="/img/avatar.svg" alt="sorrow"></a><div class="profile-name">sorrow</div><div class="profile-motto"><i class="fas fa-quote-left"></i> Work quietly, and let success speak.</div><div class="profile-stats"><div class="profile-stat"><span class="profile-stat-num">6</span><span class="profile-stat-label">文章</span></div><div class="profile-stat"><span class="profile-stat-num">23</span><span class="profile-stat-label">标签</span></div><div class="profile-stat"><span class="profile-stat-num">4</span><span class="profile-stat-label">分类</span></div></div><div class="profile-repos"><div class="profile-repos-title"><i class="fas fa-code-branch"></i> 开放项目</div><ul class="profile-repos-list" id="profile-repos-list"><li class="profile-repos-loading">加载中...</li></ul></div><a class="profile-heatmap-link" href="https://github.com/FearlessYuzuki" target="_blank" rel="noopener" title="GitHub 贡献热力图"><div class="profile-heatmap" id="profile-heatmap"></div></a></div><button class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button><div class="search-overlay" id="search-overlay"><div class="search-panel"><div class="search-bar"><div class="window-dots"><span class="dot dot-close"></span><span class="dot dot-min"></span><span class="dot dot-max"></span></div><span class="search-bar-title"><i class="fas fa-search"></i> Tag Search</span><button class="search-close" aria-label="Close" type="button"><i class="fas fa-times"></i></button></div><div class="search-input-wrap"><input id="search-input" type="text" placeholder="Search..." autocomplete="off" spellcheck="false" aria-label="Search..."></div><div class="search-results" id="search-results"></div><div class="search-empty" id="search-empty" data-first="Loading index...">No results found</div></div></div><script src="/js/main.js?v=1792066348261"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Tag: C++ | Yuzuik&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#14161d">
+  <meta name="description" content="Log &amp; Dev">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yuzuik&#39;s Blog">
+<meta property="og:url" content="https://fearlessyuzuki.github.io/tags/C/index.html">
+<meta property="og:site_name" content="Yuzuik&#39;s Blog">
+<meta property="og:description" content="Log &amp; Dev">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="sorrow">
+<meta property="article:tag" content="C++, Linux, UE, Unity, Rust, Java, C#, Algorithms">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Yuzuik's Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/img/favicon.svg">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Yuzuik&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">there, sorrow in your eyes</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon">&#9776;</a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
+        
+          <a class="main-nav-link" href="/about/">About</a>
+        
+          <a class="main-nav-link" href="/project/">Projects</a>
+        
+          <a class="main-nav-link" href="/gallery/">Gallery</a>
+        
+          <a class="main-nav-link" href="/links/">Friends</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          
+            <a class="nav-icon" href="https://github.com/FearlessYuzuki" target="_blank" rel="noopener">github</a>
+          
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed">rss</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2026" class="archive-year">2026</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2026/09/05/review-the-code-from-2013/" class="archive-article-date">
+  <time class="dt-published" datetime="2026-09-05T02:10:00.000Z" itemprop="datePublished">Sep 5</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2026/09/05/review-the-code-from-2013/">Review the code from 2013：剖析 Source Engine 玩家移动核心（连载·上）</a>
+    </h1>
+  
+
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2026/09/05/ue5-source-movement-port/" class="archive-article-date">
+  <time class="dt-published" datetime="2026-09-05T02:00:00.000Z" itemprop="datePublished">Sep 5</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2026/09/05/ue5-source-movement-port/">UE5 移植 Source Engine 移动系统：Bhop 手感从源码到实现</a>
+    </h1>
+  
+
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Audio/">Audio</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev/">Dev</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Essay/">Essay</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorial/">Tutorial</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/Analysis/" style="font-size: 10px;">Analysis</a> <a href="/tags/Audio/" style="font-size: 10px;">Audio</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/CSharp/" style="font-size: 10px;">CSharp</a> <a href="/tags/DSP/" style="font-size: 10px;">DSP</a> <a href="/tags/EDID/" style="font-size: 10px;">EDID</a> <a href="/tags/EQ/" style="font-size: 10px;">EQ</a> <a href="/tags/GameDev/" style="font-size: 10px;">GameDev</a> <a href="/tags/GamePlay/" style="font-size: 10px;">GamePlay</a> <a href="/tags/HiFi/" style="font-size: 10px;">HiFi</a> <a href="/tags/MOONDROP/" style="font-size: 10px;">MOONDROP</a> <a href="/tags/Movement/" style="font-size: 10px;">Movement</a> <a href="/tags/PInvoke/" style="font-size: 10px;">PInvoke</a> <a href="/tags/SourceEngine/" style="font-size: 20px;">SourceEngine</a> <a href="/tags/UnrealEngine/" style="font-size: 10px;">UnrealEngine</a> <a href="/tags/WPF/" style="font-size: 10px;">WPF</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/digital/" style="font-size: 10px;">digital</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/night/" style="font-size: 10px;">night</a> <a href="/tags/thoughts/" style="font-size: 10px;">thoughts</a> <a href="/tags/tutorial/" style="font-size: 10px;">tutorial</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">September 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/08/">August 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">July 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/09/05/review-the-code-from-2013/">Review the code from 2013：剖析 Source Engine 玩家移动核心（连载·上）</a>
+          </li>
+        
+          <li>
+            <a href="/2026/09/05/ue5-source-movement-port/">UE5 移植 Source Engine 移动系统：Bhop 手感从源码到实现</a>
+          </li>
+        
+          <li>
+            <a href="/2026/08/29/moondrop-rays-eq-notes/">水月雨 RAYS 光束：我的 EQ 调音笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2026/08/27/building-windows-resolution-changer/">从零构建 Windows 双屏分辨率切换工具：C#、EDID 与那些坑</a>
+          </li>
+        
+          <li>
+            <a href="/2026/08/23/markdown-syntax/">Markdown 语法速查手册</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        All posts licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>
+        <br>
+      
+      &copy; 2026 sorrow
+      &middot; Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>
+      &middot; theme <a href="https://github.com/hexojs/hexo-theme-landscape" target="_blank" rel="noopener">Landscape</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about/" class="mobile-nav-link">About</a>
+  
+    <a href="/project/" class="mobile-nav-link">Projects</a>
+  
+    <a href="/gallery/" class="mobile-nav-link">Gallery</a>
+  
+    <a href="/links/" class="mobile-nav-link">Friends</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

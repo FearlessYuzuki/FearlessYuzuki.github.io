@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author>
+    <name>sorrow</name>
+  </author>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  <id>https://fearlessyuzuki.github.io/</id>
+  <link href="https://fearlessyuzuki.github.io/" rel="alternate"/>
+  <link href="https://fearlessyuzuki.github.io/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, sorrow</rights>
+  <subtitle>there, sorrow in your eyes</subtitle>
+  <title>Yuzuik's Blog</title>
+  <updated>2026-11-05T05:32:16.018Z</updated>
+  <entry>
+    <author>
+      <name>sorrow</name>
+    </author>
+    <category term="Dev" scheme="https://fearlessyuzuki.github.io/categories/Dev/"/>
+    <category term="SourceEngine" scheme="https://fearlessyuzuki.github.io/tags/SourceEngine/"/>
+    <category term="GameDev" scheme="https://fearlessyuzuki.github.io/tags/GameDev/"/>
+    <category term="C++" scheme="https://fearlessyuzuki.github.io/tags/C/"/>
+    <category term="Analysis" scheme="https://fearlessyuzuki.github.io/tags/Analysis/"/>
+    <id>https://fearlessyuzuki.github.io/2026/09/05/review-the-code-from-2013/</id>
+    <link href="https://fearlessyuzuki.github.io/2026/09/05/review-the-code-from-2013/"/>
+    <published>2026-09-05T02:10:00.000Z</published>
+    <summary>对 Source SDK 2013 gamemovement.cpp 的逐段代码剖析：CheckParameters、PlayerMove、FullWalkMove、CategorizePosition 与 WalkMove。含勘误：欧拉积分概念混淆、UE FVector 精度说明。未完待续——还有很大一部分没分析完。</summary>
+    <title>Review the code from 2013：剖析 Source Engine 玩家移动核心（连载·上）</title>
+    <updated>2026-11-05T05:32:16.018Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>sorrow</name>
+    </author>
+    <category term="Dev" scheme="https://fearlessyuzuki.github.io/categories/Dev/"/>
+    <category term="SourceEngine" scheme="https://fearlessyuzuki.github.io/tags/SourceEngine/"/>
+    <category term="C++" scheme="https://fearlessyuzuki.github.io/tags/C/"/>
+    <category term="UnrealEngine" scheme="https://fearlessyuzuki.github.io/tags/UnrealEngine/"/>
+    <category term="Movement" scheme="https://fearlessyuzuki.github.io/tags/Movement/"/>
+    <category term="GamePlay" scheme="https://fearlessyuzuki.github.io/tags/GamePlay/"/>
+    <id>https://fearlessyuzuki.github.io/2026/09/05/ue5-source-movement-port/</id>
+    <link href="https://fearlessyuzuki.github.io/2026/09/05/ue5-source-movement-port/"/>
+    <published>2026-09-05T02:00:00.000Z</published>
+    <summary>项目主页备份：把 Source SDK 2013 的移动物理移植进 UE5 CharacterMovementComponent 层，复现 Bhop / Air Strafe 手感。包含技术原理（输入映射、CalcVelocity 重写理由、分步重力）与系列研究文章索引。</summary>
+    <title>UE5 移植 Source Engine 移动系统：Bhop 手感从源码到实现</title>
+    <updated>2026-11-05T05:32:16.018Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>sorrow</name>
+    </author>
+    <category term="Audio" scheme="https://fearlessyuzuki.github.io/categories/Audio/"/>
+    <category term="Audio" scheme="https://fearlessyuzuki.github.io/tags/Audio/"/>
+    <category term="EQ" scheme="https://fearlessyuzuki.github.io/tags/EQ/"/>
+    <category term="DSP" scheme="https://fearlessyuzuki.github.io/tags/DSP/"/>
+    <category term="MOONDROP" scheme="https://fearlessyuzuki.github.io/tags/MOONDROP/"/>
+    <category term="HiFi" scheme="https://fearlessyuzuki.github.io/tags/HiFi/"/>
+    <id>https://fearlessyuzuki.github.io/2026/08/29/moondrop-rays-eq-notes/</id>
+    <link href="https://fearlessyuzuki.github.io/2026/08/29/moondrop-rays-eq-notes/"/>
+    <published>2026-08-28T18:00:00.000Z</published>
+    <summary>记录我为水月雨 RAYS 光束游戏入耳式耳机调校的 8 段 PEQ 参数，逐段分析每个滤波器的意图（削极低频、压齿音、抬 6.7kHz 定位频段），以及一点主观听感说明。</summary>
+    <title>水月雨 RAYS 光束：我的 EQ 调音笔记</title>
+    <updated>2026-11-05T05:32:16.018Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>sorrow</name>
+    </author>
+    <category term="Dev" scheme="https://fearlessyuzuki.github.io/categories/Dev/"/>
+    <category term="Windows" scheme="https://fearlessyuzuki.github.io/tags/Windows/"/>
+    <category term="CSharp" scheme="https://fearlessyuzuki.github.io/tags/CSharp/"/>
+    <category term="WPF" scheme="https://fearlessyuzuki.github.io/tags/WPF/"/>
+    <category term="PInvoke" scheme="https://fearlessyuzuki.github.io/tags/PInvoke/"/>
+    <category term="EDID" scheme="https://fearlessyuzuki.github.io/tags/EDID/"/>
+    <category term="AI" scheme="https://fearlessyuzuki.github.io/tags/AI/"/>
+    <id>https://fearlessyuzuki.github.io/2026/08/27/building-windows-resolution-changer/</id>
+    <link href="https://fearlessyuzuki.github.io/2026/08/27/building-windows-resolution-changer/"/>
+    <published>2026-08-26T18:00:00.000Z</published>
+    <summary>详解一个 Mac 风格双屏分辨率切换工具的完整实现：显示器枚举、EDID 型号解析、模式枚举与 ChangeDisplaySettingsEx，以及过程中踩过的一堆坑。本项目为 AI 辅助开发（Vibe Coding）产物。</summary>
+    <title>从零构建 Windows 双屏分辨率切换工具：C#、EDID 与那些坑</title>
+    <updated>2026-11-05T05:32:16.017Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>sorrow</name>
+    </author>
+    <category term="Tutorial" scheme="https://fearlessyuzuki.github.io/categories/Tutorial/"/>
+    <category term="markdown" scheme="https://fearlessyuzuki.github.io/tags/markdown/"/>
+    <category term="tutorial" scheme="https://fearlessyuzuki.github.io/tags/tutorial/"/>
+    <id>https://fearlessyuzuki.github.io/2026/08/23/markdown-syntax/</id>
+    <link href="https://fearlessyuzuki.github.io/2026/08/23/markdown-syntax/"/>
+    <published>2026-08-23T14:30:00.000Z</published>
+    <summary>一份覆盖 Markdown 常用语法的完整速查手册，从基础排版到进阶技巧，随时查阅。</summary>
+    <title>Markdown 语法速查手册</title>
+    <updated>2026-08-23T15:10:15.516Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>sorrow</name>
+    </author>
+    <category term="Essay" scheme="https://fearlessyuzuki.github.io/categories/Essay/"/>
+    <category term="thoughts" scheme="https://fearlessyuzuki.github.io/tags/thoughts/"/>
+    <category term="digital" scheme="https://fearlessyuzuki.github.io/tags/digital/"/>
+    <category term="night" scheme="https://fearlessyuzuki.github.io/tags/night/"/>
+    <id>https://fearlessyuzuki.github.io/2026/07/23/midnight-reflections/</id>
+    <link href="https://fearlessyuzuki.github.io/2026/07/23/midnight-reflections/"/>
+    <published>2026-07-22T18:30:00.000Z</published>
+    <summary>A quiet contemplation on the nature of digital existence and the spaces between code and consciousness.</summary>
+    <title>Midnight Reflections on Digital Dreams</title>
+    <updated>2026-07-24T09:57:17.852Z</updated>
+  </entry>
+</feed>
